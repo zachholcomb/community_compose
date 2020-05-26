@@ -23,13 +23,18 @@ gem 'figaro'
 gem 'omniauth-facebook'
 
 group :development, :test do
-  gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  gem 'pry'
   gem 'rspec-rails'
   gem 'capybara'
   gem 'launchy'
   gem 'factory_bot'
   gem 'faker'
   gem 'simplecov'
+end
+
+group :test do
+  gem 'webmock'
+  gem 'vcr'
 end
 
 group :development do
