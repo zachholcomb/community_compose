@@ -14,20 +14,27 @@ RSpec.describe 'User Dashboard', type: :feature do
     end
 
     it 'see my Flat profile information' do
-      expected = nil
+      expected1 = nil
       File.open('spec/fixtures/flat/user.json') do |file|
         file.each_line do |line|
-          expected = JSON.parse(line, symbolize_names: true)
+          expected1 = JSON.parse(line, symbolize_names: true)
         end
       end
 
-      expect(page).to have_content("User Name: #{expected[:username]}")
-      expect(page).to have_content("Number of Scores: #{expected[:ownedPublicScoreCount]}")
-      expect(page).to have_content("Following: #{expected[:followingCount]}")
-      expect(page).to have_content("Followers: #{expected[:followersCount]}")
+      expected2 = nil
+      File.open('spec/fixtures/flat/user_scores.json') do |file|
+        file.each_line do |line|
+          expected2 = JSON.parse(line, symbolize_names: true)
+        end
+      end
+
+      expect(page).to have_content("User Name: #{expected1[:username]}")
+      expect(page).to have_content("Number of Scores: #{expected1[:ownedPublicScoreCount]}")
+      expect(page).to have_content("Following: #{expected1[:followingCount]}")
+      expect(page).to have_content("Followers: #{expected1[:followersCount]}")
       expect(page).to have_content('My Scores:')
       within('.scores') do
-        expect(page).to have_content("Funk")
+        expect(page).to have_content(expected2[0][:title])
       end
     end
   end
