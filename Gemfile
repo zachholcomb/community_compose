@@ -21,6 +21,7 @@ gem 'bootsnap', '>= 1.1.0', require: false
 gem 'faraday'
 gem 'figaro'
 gem 'omniauth-facebook'
+gem 'flat_api'
 
 group :development, :test do
   gem 'pry'
