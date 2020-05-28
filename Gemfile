@@ -32,6 +32,9 @@ group :development, :test do
   gem 'faker'
   gem 'simplecov'
   gem 'shoulda-matchers'
+  gem 'selenium-webdriver'
+  gem 'webdrivers'
+  gem 'chromedriver-helper'
 end
 
 group :test do
