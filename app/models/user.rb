@@ -1,8 +1,8 @@
 class User < ApplicationRecord
-  validates_presence_of :email
+  validates :email, presence: true
 
   def flat_key
-    # will make dynamic later 
+    # will make dynamic later
     ENV['FLAT_KEY']
   end
 end

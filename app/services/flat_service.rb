@@ -10,6 +10,10 @@ class FlatService
       get_json(conn.get('/v2/users/me/scores'))
     end
 
+    def get_score(score_id)
+      get_json(conn.get("/v2/scores/#{score_id}"))
+    end
+
     private
 
     def conn
