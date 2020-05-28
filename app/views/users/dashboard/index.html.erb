@@ -7,7 +7,7 @@
 <section class='scores'>
   <% @user.scores.each_with_index do |score, index| %>
     <div id="<%= index %>">
-      <%= score[:title] %>
+      <%= score.title %>
     </div>
   <% end %>
 </section>
