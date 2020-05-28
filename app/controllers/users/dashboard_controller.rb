@@ -1,5 +1,6 @@
 class Users::DashboardController < ApplicationController
   def index
-    @user = DashboardFacade.new(current_user)
+    FlatService.flat_key = current_user.flat_key
+    @user = DashboardFacade.new
   end
 end

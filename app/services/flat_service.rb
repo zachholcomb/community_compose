@@ -1,21 +1,20 @@
 class FlatService
   class << self
-    def get_user(current_user)
-      resp = conn(current_user).get('/v2/me')
-      # require "pry"; binding.pry
-      get_json(resp)
+    attr_accessor :flat_key
+
+    def get_user
+      get_json(conn.get('/v2/me'))
     end
 
-    def get_scores(current_user)
-      resp = conn(current_user).get('/v2/users/me/scores')
-      get_json(resp)
+    def get_scores
+      get_json(conn.get('/v2/users/me/scores'))
     end
 
     private
 
-    def conn(current_user)
+    def conn
       Faraday.new('https://api.flat.io') do |f|
-        f.headers[:Authorization] = "Bearer #{current_user.flat_key}"
+        f.headers[:Authorization] = "Bearer #{@flat_key}"
       end
     end
 
