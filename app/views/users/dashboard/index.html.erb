@@ -1,0 +1,13 @@
+
+<p>User Name: <%= @user.user_info[:username] %></p>
+<p>Number of Scores: <%= @user.user_info[:ownedPublicScoresCount] %></p>
+<p>Following: <%= @user.user_info[:followingCount] %></p>
+<p>Followers: <%= @user.user_info[:followersCount] %></p>
+<p>My Scores:</p>
+<section class='scores'>
+  <% @user.scores.each_with_index do |score, index| %>
+    <div id="<%= index %>">
+      <%= score[:title] %>
+    </div>
+  <% end %>
+</section>
