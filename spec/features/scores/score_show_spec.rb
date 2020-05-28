@@ -34,6 +34,6 @@ RSpec.describe 'As a User', type: :feature do
     
     expect(current_path).to eq(scores_path)
     expect(page).to have_content(expected[0][:title])
-
+    expect(page).to have_css('#embed-container')
   end
 end
