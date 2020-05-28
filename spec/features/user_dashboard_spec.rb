@@ -10,15 +10,15 @@ RSpec.describe 'User Dashboard', type: :feature do
       stub_request(:get, "https://api.flat.io/v2/me").to_return(status: 200, body: @json_user_resp, headers: {})
       @json_score_resp = File.read('spec/fixtures/flat/user_scores.json')
       stub_request(:get, "https://api.flat.io/v2/users/me/scores").to_return(status: 200, body: @json_score_resp, headers: {})
-      
+
       visit users_dashboard_index_path
     end
 
     it 'see my Flat profile information' do
-      expect(page).to have_content("User Name: #{@json_user_resp[:name]}")
-      expect(page).to have_content("Number of Scores: #{@json_user_resp[:ownedPublicScoresCount]}")
-      expect(page).to have_content("Following: #{@json_user_resp[:followingCount]}")
-      expect(page).to have_content("Followers: #{@json_user_resp[:followersCount]}")
+      expect(page).to have_content("User Name: #{@json_user_resp['name']}")
+      expect(page).to have_content("Number of Scores: #{@json_user_resp['ownedPublicScoresCount']}")
+      expect(page).to have_content("Following: #{@json_user_resp['followingCount']}")
+      expect(page).to have_content("Followers: #{@json_user_resp['followersCount']}")
       expect(page).to have_content('Scores:')
       within('.scores') do
         expect(page).to have_content("Funk")
