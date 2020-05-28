@@ -3,7 +3,6 @@ class DashboardFacade
 
   def initialize
     @user_info = FlatService.get_user
-    @scores = FlatService.get_scores
+    @scores = Score.create
   end
-
 end

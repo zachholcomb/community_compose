@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe 'User Dashboard', type: :feature do
-  describe 'As a logged in user when I visit the dashboard I can ' do
+  describe 'As a logged in user when I visit the dashboard I can' do
     before(:each) do
       @user = create(:user)
       allow_any_instance_of(ApplicationController).to receive(:current_user)
