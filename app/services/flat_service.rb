@@ -30,6 +30,10 @@ class FlatService
       end
     end
 
+    def update(score_id)
+      
+    end
+
     private
 
     def conn
