@@ -26,4 +26,11 @@ class Score
     @id = score[:id]
     @collaborators = score[:collaborators]
   end
+
+  def current_collaborator?(username)
+    @collaborators.each do |collab|
+      return true if collab[:user][:username] == username
+    end
+    false
+  end
 end
