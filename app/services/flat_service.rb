@@ -7,11 +7,16 @@ class FlatService
     end
 
     def get_scores
-      get_json(conn.get('/v2/users/me/scores'))
+      response = conn.get('/v2/users/me/scores')
+      response.body.empty? ? [] : get_json(response)
     end
 
     def get_score(score_id)
       get_json(conn.get("/v2/scores/#{score_id}"))
+    end
+
+    def delete_score(score_id)
+      conn.delete("/v2/scores/#{score_id}")
     end
 
     private

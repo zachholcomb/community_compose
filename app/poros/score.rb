@@ -9,7 +9,12 @@ class Score
     def show(score_id)
       Score.new(FlatService.get_score(score_id))
     end
+
+    def delete(score_id)
+      FlatService.delete_score(score_id)
+    end
   end
+
   attr_reader :title, :id
 
   def initialize(score)
