@@ -20,7 +20,9 @@
 
 <section class="collaborators">
   <h3>Collaborators</h3>
+  <ul>
   <% @score.collaborators.each do |collaborator| %>
-    <p></p>
+    <li><p><%= collaborator[:user][:username] %></p></li>
   <% end %>
+  </ul>
 </section>

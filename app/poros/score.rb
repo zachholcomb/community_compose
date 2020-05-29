@@ -19,7 +19,7 @@ class Score
     end
   end
 
-  attr_reader :title, :id
+  attr_reader :title, :id, :collaborators
 
   def initialize(score)
     @title = score[:title]
