@@ -24,5 +24,6 @@ class Score
   def initialize(score)
     @title = score[:title]
     @id = score[:id]
+    @collaborators = score[:collaborators]
   end
 end
