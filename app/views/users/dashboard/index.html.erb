@@ -5,9 +5,12 @@
 <p>Followers: <%= @user.user_info[:followersCount] %></p>
 <p>My Scores:</p>
 <section class='scores'>
-  <% @user.scores.each_with_index do |score, index| %>
-    <div id="<%= index %>">
-      <%= link_to score.title, scores_path(:params => {score_id: score.id}) %>
-    </div>
+  <% if !(@user.scores.empty?) %>
+    <% @user.scores.each_with_index do |score, index| %>
+      <div id="score-<%= index %>">
+        <%= link_to score.title, scores_path(:params => {score_id: score.id}) %>
+        <%= link_to 'Delete', score_path(score.id), method: :delete%>
+      </div>
+    <% end %>
   <% end %>
 </section>
