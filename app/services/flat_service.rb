@@ -19,6 +19,10 @@ class FlatService
       conn.delete("/v2/scores/#{score_id}")
     end
 
+    def create_score(score_id)
+      conn.post("/v2/scores")
+    end
+
     private
 
     def conn
