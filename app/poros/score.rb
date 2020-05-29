@@ -13,6 +13,10 @@ class Score
     def delete(score_id)
       FlatService.delete_score(score_id)
     end
+
+    def new_score(score_id)
+      FlatService.create_score(score_id)
+    end
   end
 
   attr_reader :title, :id
