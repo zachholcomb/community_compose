@@ -4,6 +4,7 @@
 <p>Following: <%= @user.user_info[:followingCount] %></p>
 <p>Followers: <%= @user.user_info[:followersCount] %></p>
 <p>My Scores:</p>
+<%= link_to 'Create Score', '/scores/new' %>
 <section class='scores'>
   <% if !(@user.scores.empty?) %>
     <% @user.scores.each_with_index do |score, index| %>

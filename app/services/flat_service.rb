@@ -19,6 +19,17 @@ class FlatService
       conn.delete("/v2/scores/#{score_id}")
     end
 
+    def create_score(title)
+      file = File.read('./xml_files/template.musicxml')
+      enc = Base64.encode64(file)
+      conn.post('/v2/scores') do |request|
+        request.body = "{ 'title': #{title},
+                          'data': #{enc},
+                          'dataEncoding': 'base64'
+                        }"
+      end
+    end
+
     private
 
     def conn

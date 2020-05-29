@@ -3,5 +3,5 @@ Rails.application.routes.draw do
     resources :dashboard, only: [:index]
   end
 
-  resources :scores, only: [:index, :destroy]
+  resources :scores, only: [:index, :new, :create, :destroy]
 end
