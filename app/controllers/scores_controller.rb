@@ -10,6 +10,11 @@ class ScoresController < ApplicationController
     redirect_to users_dashboard_index_path
   end
 
+  def update
+    Score.update_score(params[:id])
+    redirect_to users_dashboard_index_path
+  end
+
   def destroy
     Score.delete(params[:id])
     redirect_to users_dashboard_index_path
