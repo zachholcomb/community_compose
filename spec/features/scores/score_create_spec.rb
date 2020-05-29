@@ -19,7 +19,7 @@ RSpec.describe 'User scores create' do
     within '.scores' do
       expect(page).to_not have_css('#score-0')
     end
-
+    
     json_new_score_resp = File.read('spec/fixtures/flat/create_score/create_new_score.json')
     stub_request(:post, "https://api.flat.io/v2/scores").to_return(status: 200, body: json_new_score_resp, headers: {})
 
@@ -29,7 +29,7 @@ RSpec.describe 'User scores create' do
 
     json_score_resp = File.read('spec/fixtures/flat/create_score/users_scores_create_score.json')
     stub_request(:get, "https://api.flat.io/v2/users/me/scores").to_return(status: 200, body: json_score_resp, headers: {})
-    
+
     fill_in :title, with: 'My New Score'
     click_on 'Submit Score'
 
