@@ -11,6 +11,7 @@
       <div id="score-<%= index %>">
         <%= link_to score.title, scores_path(:params => {score_id: score.id}) %>
         <%= link_to 'Delete', score_path(score.id), method: :delete%>
+        <%= link_to 'Edit Score', scores_path(:params => {score_id: score.id}) %>
       </div>
     <% end %>
   <% end %>
