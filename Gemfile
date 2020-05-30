@@ -22,6 +22,7 @@ gem 'faraday'
 gem 'figaro'
 gem 'omniauth-facebook'
 gem 'flat_api'
+gem 'rack-cors'
 
 group :development, :test do
   gem 'pry'
