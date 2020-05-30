@@ -4,4 +4,7 @@ Rails.application.routes.draw do
   end
 
   resources :scores, only: [:index, :new, :create, :update, :destroy]
+
+  get '/login', to: 'sessions#new'
+  post '/login', to: 'sessions#create'
 end
