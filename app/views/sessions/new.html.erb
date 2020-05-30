@@ -1,0 +1,11 @@
+<div class="user-login">
+  <section>
+    <%= form_for :session, url: login_path, method: :post do |f| %>
+      <div>
+        <%= f.label :email %>
+        <%= f.email_field :email %>
+      </div>
+      <%= f.submit 'Log In' %>
+    <% end %>
+  </section>
+</div>
