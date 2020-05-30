@@ -1,6 +1,8 @@
 <h1><%= @score.title %></h1>
 
 <div id="embed-container"></div>
+<%# <button id="export-xml" class="btn-cta-site">Submit Changes</button> %>
+<%= button_to 'Submit Changes', "/scores/#{@score.id}", method: :patch, id: 'export-xml' %>
 <script src="https://prod.flat-cdn.com/embed-js/v1.3.0/embed.min.js"></script>
 <script>
   var container = document.getElementById("embed-container");
@@ -11,10 +13,19 @@
     "embedParams": {
       "mode": "edit",
       "branding": false,
-      "appId": "5ecd978ef0aa2b501cf8cf25"
+      "appId": "5ecd978ef0aa2b501cf8cf25",
+      "controlsPosition": "top"
     },
   });
-  // You can now use the `embed` instance.
-  // Check out the docs at https://flat.io/developers/docs/embed/javascript.html
+
+  document.getElementById('export-xml').addEventListener('click', function () {
+    embed.getMusicXML({ compressed: true }).then(function (buffer) {
+    // var blobUrl = window.URL.createObjectURL(new Blob(buffer), {
+      type: 'spplication/vnd.recordare.musicxml+xml'
+      });
+    });
+  // });
+  var data = new FormData();
+   data.append(blobUrl);
+  return data;
 </script>
-<%= link_to 'Submit Changes', score_path(@score.id), method: :put %>
