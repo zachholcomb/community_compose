@@ -18,14 +18,26 @@
     },
   });
 
+  let headers = new Headers();
+  headers.set('Authorization', 'Bearer ' + '<%= current_user.flat_key%>')
+  headers.set('Content-Type', 'application/json')
+
   document.getElementById('export-xml').addEventListener('click', function () {
-    embed.getMusicXML({ compressed: true }).then(function (buffer) {
-    // var blobUrl = window.URL.createObjectURL(new Blob(buffer), {
-      type: 'spplication/vnd.recordare.musicxml+xml'
+    embed.getMusicXML().then(function (xml) {
+      editScore(btoa(xml))
       });
     });
-  // });
-  var data = new FormData();
-   data.append(blobUrl);
-  return data;
+
+    function editScore(document) { fetch('https://api.flat.io/v2/scores/<%= @score.id %>/revisions' , {
+      method: 'post',
+      headers: headers,
+      body: JSON.stringify({
+             "title": "<%= @score.title %>",
+             "data": `${document}`,
+             "dataEncoding": "base64",
+             "autosave": true
+        }),
+      mode: 'cors'
+      })
+    };
 </script>
