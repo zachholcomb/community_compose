@@ -19,9 +19,9 @@ class FlatService
       conn.delete("/v2/scores/#{score_id}")
     end
 
-    def add_collaborator(score_id, flat_id)
+    def add_collaborator(score_id, user_id)
       conn.post("/v2/scores/#{score_id}/collaborators") do |request|
-        request.body = "{ 'user': #{flat_id}}"
+        request.body = "{ 'user': #{user_id}, 'aclWrite': true }"
       end
     end
 

@@ -17,6 +17,10 @@ class Score
     def new_score(score_id)
       FlatService.create_score(score_id)
     end
+
+    def add_collaborator(score_id, user_id)
+      FlatService.add_collaborator(score_id, user_id)
+    end
   end
 
   attr_reader :title, :id, :collaborators

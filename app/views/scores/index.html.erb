@@ -34,7 +34,7 @@
       <ul>
         <% @score.pending_requests.each do |request| %>
           <li><p><%= request.username %></p>
-            <p><%= button_to 'Approve', "/requests/#{request.id}", method: :delete, params: {type: 'approve', score_id: @score.id} %>
+            <p><%= button_to 'Approve', "/requests/#{request.id}", method: :delete, params: {type: 'approve', username: current_user[:username], score_id: @score.id} %>
             <p><%= button_to 'Reject', "/requests/#{request.id}", method: :delete, params: {score_id: @score.id} %>
           </li>
         <% end %>
