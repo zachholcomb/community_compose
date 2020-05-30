@@ -1,5 +1,7 @@
 {
   "name": "community_compose",
   "private": true,
-  "dependencies": {}
+  "dependencies": {
+    "flat-embed": "^1.3.0"
+  }
 }
