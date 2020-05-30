@@ -16,9 +16,7 @@ RSpec.describe 'As a registered user' do
   end
 
   it 'I can edit scores' do
-    json_edit_resp = File.read('spec/fixtures/flat/edit_score/score_owner_edit.json')
     score_id = '5ed093f4a892cd59c611e0fc'
-    stub_request(:put, "http://api.flat.io/v2/scores/#{score_id}/revisions").to_return(status: 200, body: json_edit_resp, headers: {})
     
     json_score_resp = File.read('spec/fixtures/flat/create_score/create_new_score.json')
     stub_request(:get, "https://api.flat.io/v2/scores/#{score_id}").to_return(status: 200, body: json_score_resp, headers: {})
@@ -26,12 +24,13 @@ RSpec.describe 'As a registered user' do
     
     within '.scores' do
       within '#score-0' do
-        click_on("Edit Score")
+        click_on('My New Score')
       end
     end
 
     click_on('Submit Changes')
 
     expect(page).to have_current_path(users_dashboard_index_path)
+    expect(page).to have_content('Your changes were saved!')
   end
 end
