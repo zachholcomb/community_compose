@@ -34,7 +34,7 @@ RSpec.describe 'Collaborators Features: ', type: :feature do
       end
     end
 
-    it 'I see a link to request to collaborate if it is not my score' do
+    it 'I see a button to request to collaborate if it is not my score' do
       within('.collaborators') do
         within ('.requests') do
           expect(page).to have_button('Request to collaborate on this score')
@@ -42,8 +42,10 @@ RSpec.describe 'Collaborators Features: ', type: :feature do
       end
     end
 
-    it 'I do not see a link if I am already a collaborator' do
+    it 'I do not see a button if I am already a collaborator' do
       @user.update(username: 'tylerpporter')
+      visit users_dashboard_index_path
+      within('.scores') { click_link 'Funk' }
 
       within('.collaborators') do
         within ('.requests') do
@@ -93,7 +95,7 @@ RSpec.describe 'Collaborators Features: ', type: :feature do
       end
     end
 
-    xit 'I can request to collaborate and be approved by the owner' do
+    it 'I can request to collaborate and be approved by the owner' do
       collab_name = @user[:username]
       within('.collaborators') { click_button('Request to collaborate on this score') }
 
@@ -113,6 +115,5 @@ RSpec.describe 'Collaborators Features: ', type: :feature do
         expect(page).to have_content(collab_name)
       end
     end
-
   end
 end

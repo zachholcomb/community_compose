@@ -37,6 +37,7 @@ class Score
 
   def owner?(username)
     return true if username == @owner
+
     false
   end
 
