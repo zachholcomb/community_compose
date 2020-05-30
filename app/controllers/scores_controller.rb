@@ -11,7 +11,7 @@ class ScoresController < ApplicationController
   end
 
   def update
-    Score.update_score(params[:id])
+    flash[:notice] = 'Your changes were saved!'
     redirect_to users_dashboard_index_path
   end
 
