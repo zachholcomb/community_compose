@@ -6,8 +6,8 @@ class FlatService
       get_json(conn.get('/v2/me'))
     end
 
-    def get_scores
-      response = conn.get('/v2/users/me/scores')
+    def get_scores(user_id)
+      response = conn.get("/v2/users/#{user_id}/scores")
       response.body.empty? ? [] : get_json(response)
     end
 
