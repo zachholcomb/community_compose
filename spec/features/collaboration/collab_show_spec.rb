@@ -23,9 +23,7 @@ RSpec.describe 'Collaborators Features: ', type: :feature do
                                                                                         body: json_score_show_resp,
                                                                                         headers: {})
       visit users_dashboard_index_path
-      within('.scores') do
-        click_link 'Funk'
-      end
+      within('.scores') { click_link 'Funk' }
     end
 
     it 'I can see the collaborators on the score' do
@@ -49,26 +47,22 @@ RSpec.describe 'Collaborators Features: ', type: :feature do
 
       within('.collaborators') do
         within ('.requests') do
-          expect(page).to have_button('Request to collaborate on this score')
+          expect(page).to_not have_button('Request to collaborate on this score')
         end
       end
     end
 
     it 'I can request to collaborate & that request shows up for the owner' do
       collab_name = @user[:username]
+      within('.collaborators') { click_button('Request to collaborate on this score') }
 
-      within('.collaborators') do
-        click_button('Request to collaborate on this score')
-      end
 
       expect(current_path).to eq(scores_path)
 
       visit users_dashboard_index_path
       @user.update(username: 'tylerpporter')
 
-      within('.scores') do
-        click_link 'Funk'
-      end
+      within('.scores') { click_link 'Funk' }
 
       within('.collaborators') do
         within ('.requests') do
@@ -77,5 +71,48 @@ RSpec.describe 'Collaborators Features: ', type: :feature do
         end
       end
     end
+
+    it 'I can request to collaborate and be rejected by the owner' do
+      collab_name = @user[:username]
+      within('.collaborators') { click_button('Request to collaborate on this score') }
+
+      visit users_dashboard_index_path
+      @user.update(username: 'tylerpporter')
+      within('.scores') { click_link 'Funk'  }
+
+      within('.collaborators') do
+        within ('.requests') do
+          click_button 'Reject'
+        end
+      end
+
+      expect(current_path).to eq(scores_path)
+      within('.collaborators') do
+        expect(page).to_not have_content(collab_name)
+        expect(page).to_not have_content('Requests to Collaborate')
+      end
+    end
+
+    xit 'I can request to collaborate and be approved by the owner' do
+      collab_name = @user[:username]
+      within('.collaborators') { click_button('Request to collaborate on this score') }
+
+      visit users_dashboard_index_path
+      @user.update(username: 'tylerpporter')
+      within('.scores') { click_link 'Funk'  }
+
+      within('.collaborators') do
+        within ('.requests') do
+          click_button 'Approve'
+        end
+      end
+
+      expect(current_path).to eq(scores_path)
+      within('.collaborators') do
+        expect(page).to_not have_content('Requests to Collaborate')
+        expect(page).to have_content(collab_name)
+      end
+    end
+
   end
 end

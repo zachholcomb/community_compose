@@ -4,5 +4,5 @@ Rails.application.routes.draw do
   end
 
   resources :scores, only: [:index, :new, :create, :destroy]
-  resources :requests, only: [:create]
+  resources :requests, only: [:create, :destroy]
 end

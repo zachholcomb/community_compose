@@ -6,9 +6,14 @@ class RequestsController < ApplicationController
     redirect_to scores_path(:params => {score_id: request_params[:score_id]})
   end
 
+  def destroy
+    Request.delete(request_params[:id].to_i)
+    redirect_to scores_path(:params => {score_id: request_params[:score_id]})
+  end
+
   private
 
   def request_params
-    params.permit(:username, :score_id)
+    params.permit(:id, :username, :score_id, :type)
   end
 end
