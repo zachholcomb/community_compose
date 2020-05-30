@@ -23,7 +23,7 @@ RSpec.describe 'As a registered user' do
     json_score_resp = File.read('spec/fixtures/flat/create_score/create_new_score.json')
     stub_request(:get, "https://api.flat.io/v2/scores/#{score_id}").to_return(status: 200, body: json_score_resp, headers: {})
 
-
+    
     within '.scores' do
       within '#score-0' do
         click_on("Edit Score")
