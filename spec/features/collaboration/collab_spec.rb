@@ -128,5 +128,42 @@ RSpec.describe 'Collaborators Features: ', type: :feature do
         expect(page).to have_content('keithjarrett')
       end
     end
+
+    it 'I do not have the ability to add collabs if i am not the owner' do
+      within('.collaborators') { click_button('Request to collaborate on this score') }
+      visit users_dashboard_index_path
+      @user.update(username: 'tylerpporter')
+      within('.scores') { click_link 'Funk'  }
+      updated_json_score_show_resp = File.read('spec/fixtures/flat/score_show_with_addtl_collab.json')
+      expected = nil
+      File.open('spec/fixtures/flat/user_scores.json') do |file|
+        file.each_line { |line| expected = JSON.parse(line, symbolize_names: true) }
+      end
+      stub_request(:get, "https://api.flat.io/v2/scores/#{expected[0][:id]}").to_return(status: 200,
+                                                                                        body: updated_json_score_show_resp,
+                                                                                        headers: {})
+      within('.collaborators') do
+        within ('.requests') do
+          click_button 'Approve'
+        end
+      end
+
+      @user.update(username: 'eltonjohn')
+      visit users_dashboard_index_path
+      within('.scores') { click_link 'Funk' }
+      save_and_open_page
+
+      within('.collaborators') { click_button('Request to collaborate on this score') }
+
+      @user.update(username: 'keithjarrett')
+      visit users_dashboard_index_path
+      within('.scores') { click_link 'Funk' }
+      save_and_open_page
+
+      within ('.requests') do
+        expect(page).to_not have_button('Request to collaborate on this score')
+        expect(page).to_not have_button('Requests to Collaborate')
+      end
+    end
   end
 end

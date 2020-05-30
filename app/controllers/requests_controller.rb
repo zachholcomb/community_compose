@@ -8,7 +8,7 @@ class RequestsController < ApplicationController
   def destroy
     if request_params[:type] == 'approve'
       user = User.find_by(username: request_params[:username])
-      Score.add_collaborator(request_params[:score_id],user[:flat_id])
+      Score.add_collaborator(request_params[:score_id], user[:flat_id])
     end
 
     Request.delete(request_params[:id].to_i)
