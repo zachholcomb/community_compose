@@ -20,7 +20,18 @@
 
 <section class="collaborators">
   <h3>Collaborators</h3>
-  <%= button_to 'Request to collaborate on this score', '/collaborate' if !@score.current_collaborator?(current_user.username) %>
+  <section class="requests">
+    <% if !@score.current_collaborator?(current_user[:username]) %>
+      <%= button_to 'Request to collaborate on this score', '/requests', params: { username: current_user[:username], score_id: @score.id } %>
+    <% elsif @score.owner?(current_user[:username]) %>
+      <ul>
+        <% @score.pending_requests.each do |request| %>
+          <li><p><%= request.username %></p></li>
+        <% end %>
+      </ul>
+    <% end %>
+  </section>
+
   <ul>
   <% @score.collaborators.each do |collaborator| %>
     <li><p><%= collaborator[:user][:username] %></p></li>

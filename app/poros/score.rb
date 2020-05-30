@@ -25,6 +25,7 @@ class Score
     @title = score[:title]
     @id = score[:id]
     @collaborators = score[:collaborators]
+    @owner = score[:user][:username]
   end
 
   def current_collaborator?(username)
@@ -32,5 +33,14 @@ class Score
       return true if collab[:user][:username] == username
     end
     false
+  end
+
+  def owner?(username)
+    return true if username == @owner
+    false
+  end
+
+  def pending_requests
+    Request.where(score: @id)
   end
 end

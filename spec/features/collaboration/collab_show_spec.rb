@@ -38,14 +38,43 @@ RSpec.describe 'Collaborators Features: ', type: :feature do
 
     it 'I see a link to request to collaborate if it is not my score' do
       within('.collaborators') do
-        expect(page).to have_button('Request to collaborate on this score')
+        within ('.requests') do
+          expect(page).to have_button('Request to collaborate on this score')
+        end
       end
     end
 
     it 'I do not see a link if I am already a collaborator' do
       @user.update(username: 'tylerpporter')
+
       within('.collaborators') do
-        expect(page).to have_button('Request to collaborate on this score')
+        within ('.requests') do
+          expect(page).to have_button('Request to collaborate on this score')
+        end
+      end
+    end
+
+    it 'I can request to collaborate & that request shows up for the owner' do
+      collab_name = @user[:username]
+
+      within('.collaborators') do
+        click_button('Request to collaborate on this score')
+      end
+
+      expect(current_path).to eq(scores_path)
+
+      visit users_dashboard_index_path
+      @user.update(username: 'tylerpporter')
+
+      within('.scores') do
+        click_link 'Funk'
+      end
+
+      within('.collaborators') do
+        within ('.requests') do
+          expect(page).to have_content(collab_name)
+          expect(page.all("li").count).to eq(1)
+        end
       end
     end
   end
