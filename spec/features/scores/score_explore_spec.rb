@@ -19,7 +19,7 @@ RSpec.describe 'User Scores Explore Page: ' do
                                                                             body: [],
                                                                             headers: {})
 
-      json_score_resp = File.read('spec/fixtures/flat/user_scores.json')
+      json_score_resp = File.read('spec/fixtures/flat/multiple_user_scores.json')
       uri_template = Addressable::Template.new "https://api.flat.io/v2/users/{id}/scores"
       stub_request(:get, uri_template).to_return(status: 200,
                                                  body: json_score_resp,
@@ -38,8 +38,7 @@ RSpec.describe 'User Scores Explore Page: ' do
       click_on 'Explore'
 
       within '.scores' do
-        save_and_open_page
-        expect(page.all("li").count).to eq(3)
+        expect(page.all("li").count).to eq(12)
       end
     end
   end

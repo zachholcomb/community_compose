@@ -1,0 +1,362 @@
+[
+    {
+        "id": "5ed2c52b1a496566ed1150d8",
+        "title": "Backstreets",
+        "tags": [],
+        "license": "copyright",
+        "numberMeasures": 1,
+        "mainTempoQpm": 80,
+        "mainKeySignature": 0,
+        "privacy": "private",
+        "user": {
+            "username": "Bruuuuuuuuuce!!!",
+            "printableName": "Bruuuuuuuuuce!!!",
+            "id": "5ecda42869109757b671ceaa",
+            "organizationRole": null,
+            "instruments": [],
+            "picture": "https://prod.flat-cdn.com/img/avatars/placeholders/AR.svg",
+            "registrationDate": "2020-05-26T23:20:08.566Z",
+            "htmlUrl": "https://flat.io/Bruuuuuuuuuce!!!",
+            "starredScoresCount": 0,
+            "likedScoresCount": 0,
+            "followersCount": 0,
+            "followingCount": 0,
+            "ownedPublicScoresCount": 0,
+            "isPowerUser": false,
+            "isFlatTeam": false
+        },
+        "htmlUrl": "https://flat.io/score/5ed2c52b1a496566ed1150d8-backstreets",
+        "creationDate": "2020-05-30T20:42:19.716Z",
+        "modificationDate": "2020-05-30T20:42:19.717Z",
+        "instruments": [
+            "keyboards.piano"
+        ],
+        "samples": [
+            "keyboards.piano"
+        ],
+        "likes": {
+            "total": 0,
+            "weekly": 0,
+            "monthly": 0
+        },
+        "comments": {
+            "total": 0,
+            "unique": 0,
+            "weekly": 0,
+            "monthly": 0
+        },
+        "plays": {
+            "total": 0,
+            "weekly": 0,
+            "monthly": 0
+        },
+        "views": {
+            "total": 0,
+            "weekly": 0,
+            "monthly": 0
+        },
+        "collections": [
+            "5ecda5d30587fc0cca2e08c4"
+        ],
+        "rights": {
+            "aclRead": true,
+            "aclWrite": true,
+            "aclAdmin": true,
+            "isCollaborator": true
+        },
+        "collaborators": [
+            {
+                "user": {
+                    "username": "Bruuuuuuuuuce!!!",
+                    "printableName": "Bruuuuuuuuuce!!!",
+                    "id": "5ecda42869109757b671ceaa",
+                    "organizationRole": null,
+                    "instruments": [],
+                    "picture": "https://prod.flat-cdn.com/img/avatars/placeholders/AR.svg",
+                    "registrationDate": "2020-05-26T23:20:08.566Z",
+                    "htmlUrl": "https://flat.io/Bruuuuuuuuuce!!!",
+                    "starredScoresCount": 0,
+                    "likedScoresCount": 0,
+                    "followersCount": 0,
+                    "followingCount": 0,
+                    "ownedPublicScoresCount": 0,
+                    "isPowerUser": false,
+                    "isFlatTeam": false
+                },
+                "aclRead": true,
+                "aclAdmin": true,
+                "aclWrite": true
+            }
+        ]
+    },
+    {
+        "id": "5ed2c5181a496566ed1150cc",
+        "title": " Badlands",
+        "tags": [],
+        "license": "copyright",
+        "numberMeasures": 1,
+        "mainTempoQpm": 80,
+        "mainKeySignature": 0,
+        "privacy": "private",
+        "user": {
+            "username": "Bruuuuuuuuuce!!!",
+            "printableName": "Bruuuuuuuuuce!!!",
+            "id": "5ecda42869109757b671ceaa",
+            "organizationRole": null,
+            "instruments": [],
+            "picture": "https://prod.flat-cdn.com/img/avatars/placeholders/AR.svg",
+            "registrationDate": "2020-05-26T23:20:08.566Z",
+            "htmlUrl": "https://flat.io/Bruuuuuuuuuce!!!",
+            "starredScoresCount": 0,
+            "likedScoresCount": 0,
+            "followersCount": 0,
+            "followingCount": 0,
+            "ownedPublicScoresCount": 0,
+            "isPowerUser": false,
+            "isFlatTeam": false
+        },
+        "htmlUrl": "https://flat.io/score/5ed2c5181a496566ed1150cc-badlands",
+        "creationDate": "2020-05-30T20:42:00.985Z",
+        "modificationDate": "2020-05-30T20:42:00.986Z",
+        "instruments": [
+            "keyboards.piano"
+        ],
+        "samples": [
+            "keyboards.piano"
+        ],
+        "likes": {
+            "total": 0,
+            "weekly": 0,
+            "monthly": 0
+        },
+        "comments": {
+            "total": 0,
+            "unique": 0,
+            "weekly": 0,
+            "monthly": 0
+        },
+        "plays": {
+            "total": 0,
+            "weekly": 0,
+            "monthly": 0
+        },
+        "views": {
+            "total": 0,
+            "weekly": 0,
+            "monthly": 0
+        },
+        "collections": [
+            "5ecda5d30587fc0cca2e08c4"
+        ],
+        "rights": {
+            "aclRead": true,
+            "aclWrite": true,
+            "aclAdmin": true,
+            "isCollaborator": true
+        },
+        "collaborators": [
+            {
+                "user": {
+                    "username": "Bruuuuuuuuuce!!!",
+                    "printableName": "Bruuuuuuuuuce!!!",
+                    "id": "5ecda42869109757b671ceaa",
+                    "organizationRole": null,
+                    "instruments": [],
+                    "picture": "https://prod.flat-cdn.com/img/avatars/placeholders/AR.svg",
+                    "registrationDate": "2020-05-26T23:20:08.566Z",
+                    "htmlUrl": "https://flat.io/Bruuuuuuuuuce!!!",
+                    "starredScoresCount": 0,
+                    "likedScoresCount": 0,
+                    "followersCount": 0,
+                    "followingCount": 0,
+                    "ownedPublicScoresCount": 0,
+                    "isPowerUser": false,
+                    "isFlatTeam": false
+                },
+                "aclRead": true,
+                "aclAdmin": true,
+                "aclWrite": true
+            }
+        ]
+    },
+    {
+        "id": "5ed2c5059a49fa66f0dd7c38",
+        "title": "Darkness on the Edge of Town",
+        "tags": [],
+        "license": "copyright",
+        "numberMeasures": 1,
+        "mainTempoQpm": 80,
+        "mainKeySignature": 0,
+        "privacy": "private",
+        "user": {
+            "username": "Bruuuuuuuuuce!!!",
+            "printableName": "Bruuuuuuuuuce!!!",
+            "id": "5ecda42869109757b671ceaa",
+            "organizationRole": null,
+            "instruments": [],
+            "picture": "https://prod.flat-cdn.com/img/avatars/placeholders/AR.svg",
+            "registrationDate": "2020-05-26T23:20:08.566Z",
+            "htmlUrl": "https://flat.io/Bruuuuuuuuuce!!!",
+            "starredScoresCount": 0,
+            "likedScoresCount": 0,
+            "followersCount": 0,
+            "followingCount": 0,
+            "ownedPublicScoresCount": 0,
+            "isPowerUser": false,
+            "isFlatTeam": false
+        },
+        "htmlUrl": "https://flat.io/score/5ed2c5059a49fa66f0dd7c38-41-shots",
+        "creationDate": "2020-05-30T20:41:41.941Z",
+        "modificationDate": "2020-05-30T20:41:41.943Z",
+        "instruments": [
+            "unpitched-percussion.drumset-1"
+        ],
+        "samples": [
+            "unpitched-percussion.drumset-1"
+        ],
+        "likes": {
+            "total": 0,
+            "weekly": 0,
+            "monthly": 0
+        },
+        "comments": {
+            "total": 0,
+            "unique": 0,
+            "weekly": 0,
+            "monthly": 0
+        },
+        "plays": {
+            "total": 0,
+            "weekly": 0,
+            "monthly": 0
+        },
+        "views": {
+            "total": 0,
+            "weekly": 0,
+            "monthly": 0
+        },
+        "collections": [
+            "5ecda5d30587fc0cca2e08c4"
+        ],
+        "rights": {
+            "aclRead": true,
+            "aclWrite": true,
+            "aclAdmin": true,
+            "isCollaborator": true
+        },
+        "collaborators": [
+            {
+                "user": {
+                    "username": "Bruuuuuuuuuce!!!",
+                    "printableName": "Bruuuuuuuuuce!!!",
+                    "id": "5ecda42869109757b671ceaa",
+                    "organizationRole": null,
+                    "instruments": [],
+                    "picture": "https://prod.flat-cdn.com/img/avatars/placeholders/AR.svg",
+                    "registrationDate": "2020-05-26T23:20:08.566Z",
+                    "htmlUrl": "https://flat.io/Bruuuuuuuuuce!!!",
+                    "starredScoresCount": 0,
+                    "likedScoresCount": 0,
+                    "followersCount": 0,
+                    "followingCount": 0,
+                    "ownedPublicScoresCount": 0,
+                    "isPowerUser": false,
+                    "isFlatTeam": false
+                },
+                "aclRead": true,
+                "aclAdmin": true,
+                "aclWrite": true
+            }
+        ]
+    },
+    {
+        "id": "5ed2c4e8cff3860dec1fcb60",
+        "title": "Born to Run",
+        "tags": [],
+        "license": "copyright",
+        "numberMeasures": 1,
+        "mainTempoQpm": 80,
+        "mainKeySignature": 0,
+        "privacy": "private",
+        "user": {
+            "username": "Bruuuuuuuuuce!!!",
+            "printableName": "Bruuuuuuuuuce!!!",
+            "id": "5ecda42869109757b671ceaa",
+            "organizationRole": null,
+            "instruments": [],
+            "picture": "https://prod.flat-cdn.com/img/avatars/placeholders/AR.svg",
+            "registrationDate": "2020-05-26T23:20:08.566Z",
+            "htmlUrl": "https://flat.io/Bruuuuuuuuuce!!!",
+            "starredScoresCount": 0,
+            "likedScoresCount": 0,
+            "followersCount": 0,
+            "followingCount": 0,
+            "ownedPublicScoresCount": 0,
+            "isPowerUser": false,
+            "isFlatTeam": false
+        },
+        "htmlUrl": "https://flat.io/score/5ed2c4e8cff3860dec1fcb60-jackson-cage",
+        "creationDate": "2020-05-30T20:41:12.704Z",
+        "modificationDate": "2020-05-30T20:41:12.705Z",
+        "instruments": [
+            "brass.horn"
+        ],
+        "samples": [
+            "brass.horn"
+        ],
+        "likes": {
+            "total": 0,
+            "weekly": 0,
+            "monthly": 0
+        },
+        "comments": {
+            "total": 0,
+            "unique": 0,
+            "weekly": 0,
+            "monthly": 0
+        },
+        "plays": {
+            "total": 0,
+            "weekly": 0,
+            "monthly": 0
+        },
+        "views": {
+            "total": 0,
+            "weekly": 0,
+            "monthly": 0
+        },
+        "collections": [
+            "5ecda5d30587fc0cca2e08c4"
+        ],
+        "rights": {
+            "aclRead": true,
+            "aclWrite": true,
+            "aclAdmin": true,
+            "isCollaborator": true
+        },
+        "collaborators": [
+            {
+                "user": {
+                    "username": "Bruuuuuuuuuce!!!",
+                    "printableName": "Bruuuuuuuuuce!!!",
+                    "id": "5ecda42869109757b671ceaa",
+                    "organizationRole": null,
+                    "instruments": [],
+                    "picture": "https://prod.flat-cdn.com/img/avatars/placeholders/AR.svg",
+                    "registrationDate": "2020-05-26T23:20:08.566Z",
+                    "htmlUrl": "https://flat.io/Bruuuuuuuuuce!!!",
+                    "starredScoresCount": 0,
+                    "likedScoresCount": 0,
+                    "followersCount": 0,
+                    "followingCount": 0,
+                    "ownedPublicScoresCount": 0,
+                    "isPowerUser": false,
+                    "isFlatTeam": false
+                },
+                "aclRead": true,
+                "aclAdmin": true,
+                "aclWrite": true
+            }
+        ]
+    }
+]
