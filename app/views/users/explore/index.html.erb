@@ -1,0 +1,10 @@
+<p>Scores From My Area</p>
+<section class='scores'>
+  <ul>
+    <% @scores.each_with_index do |score, index| %>
+      <li id="score-<%= index %>">
+        <%= link_to score.title, scores_path(:params => {score_id: score.id}) %>
+      </li>
+    <% end %>
+  </ul>
+</section>

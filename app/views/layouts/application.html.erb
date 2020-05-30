@@ -9,6 +9,19 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
+  <nav>
+    <div>
+      <ul>
+        <li>
+          <a href='/users/dashboard'>Dashboard</a>
+        </li>
+        <li>
+          <a href='/users/explore'>Explore</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
   <body>
     <%= yield %>
   </body>
