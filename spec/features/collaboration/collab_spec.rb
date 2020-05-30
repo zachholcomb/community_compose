@@ -77,6 +77,19 @@ RSpec.describe 'Collaborators Features: ', type: :feature do
       end
     end
 
+    it 'I do not see a button if i have already submitted a request' do
+      within('.collaborators') { click_button('Request to collaborate on this score') }
+      visit users_dashboard_index_path
+      within('.scores') { click_link 'Funk' }
+
+      within('.collaborators') do
+        within ('.requests') do
+          expect(page).to_not have_button('Request to collaborate on this score')
+        end
+      end
+
+    end
+
     it 'I can request to collaborate and be rejected by the owner' do
       collab_name = @user[:username]
       within('.collaborators') { click_button('Request to collaborate on this score') }
@@ -150,7 +163,7 @@ RSpec.describe 'Collaborators Features: ', type: :feature do
       @user.update(username: 'keithjarrett')
       visit users_dashboard_index_path
       within('.scores') { click_link 'Funk' }
-      
+
       within ('.requests') do
         expect(page).to_not have_button('Request to collaborate on this score')
         expect(page).to_not have_button('Requests to Collaborate')

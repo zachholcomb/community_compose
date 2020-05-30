@@ -48,4 +48,10 @@ class Score
   def pending_requests
     Request.where(score: @id)
   end
+
+  def user_pending_request?(username)
+    return true if Request.where(score: @id).where(username: username) != []
+
+    false
+  end
 end
