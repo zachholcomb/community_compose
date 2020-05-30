@@ -18,15 +18,34 @@ class Score
       FlatService.create_score(score_id)
     end
 
-    def update_score(score_id)
-      FlatService.update(score_id)
+    def add_collaborator(score_id, user_id)
+      FlatService.add_collaborator(score_id, user_id)
     end
   end
 
-  attr_reader :title, :id
+  attr_reader :title, :id, :collaborators
 
   def initialize(score)
     @title = score[:title]
     @id = score[:id]
+    @collaborators = score[:collaborators]
+    @owner = score[:user][:username]
+  end
+
+  def current_collaborator?(username)
+    @collaborators.each do |collab|
+      return true if collab[:user][:username] == username
+    end
+    false
+  end
+
+  def owner?(username)
+    return true if username == @owner
+
+    false
+  end
+
+  def pending_requests
+    Request.where(score: @id)
   end
 end

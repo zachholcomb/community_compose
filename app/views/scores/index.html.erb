@@ -41,3 +41,29 @@
       })
     };
 </script>
+
+<section class="collaborators">
+  <h3>Collaborators</h3>
+  <ul>
+  <% @score.collaborators.each do |collaborator| %>
+    <li><p><%= collaborator[:user][:username] %></p></li>
+  <% end %>
+  </ul>
+
+  <section class="requests">
+    <% if !@score.current_collaborator?(current_user[:username]) %>
+      <%= button_to 'Request to collaborate on this score', '/requests', params: { username: current_user[:username], score_id: @score.id } %>
+    <% elsif @score.owner?(current_user[:username]) && @score.pending_requests.count > 0 %>
+    <h4>Requests to Collaborate</h4>
+      <ul>
+        <% @score.pending_requests.each do |request| %>
+          <li><p><%= request.username %></p>
+            <p><%= button_to 'Approve', "/requests/#{request.id}", method: :delete, params: {type: 'approve', username: current_user[:username], score_id: @score.id} %>
+            <p><%= button_to 'Reject', "/requests/#{request.id}", method: :delete, params: {score_id: @score.id} %>
+          </li>
+        <% end %>
+      </ul>
+    <% end %>
+  </section>
+</section>
+

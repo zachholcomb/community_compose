@@ -7,4 +7,6 @@ Rails.application.routes.draw do
 
   get '/login', to: 'sessions#new'
   post '/login', to: 'sessions#create'
+  resources :scores, only: [:index, :new, :create, :destroy]
+  resources :requests, only: [:create, :destroy]
 end
