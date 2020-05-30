@@ -19,6 +19,12 @@ class FlatService
       conn.delete("/v2/scores/#{score_id}")
     end
 
+    def add_collaborator(score_id, flat_id)
+      conn.post("/v2/scores/#{score_id}/collaborators") do |request|
+        request.body = "{ 'user': #{flat_id}}"
+      end
+    end
+
     def create_score(title)
       file = File.read('./xml_files/template.musicxml')
       enc = Base64.encode64(file)
