@@ -151,14 +151,12 @@ RSpec.describe 'Collaborators Features: ', type: :feature do
       @user.update(username: 'eltonjohn')
       visit users_dashboard_index_path
       within('.scores') { click_link 'Funk' }
-      save_and_open_page
 
       within('.collaborators') { click_button('Request to collaborate on this score') }
 
       @user.update(username: 'keithjarrett')
       visit users_dashboard_index_path
       within('.scores') { click_link 'Funk' }
-      save_and_open_page
 
       within ('.requests') do
         expect(page).to_not have_button('Request to collaborate on this score')
