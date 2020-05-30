@@ -63,12 +63,10 @@ RSpec.describe 'Collaborators Features: ', type: :feature do
       collab_name = @user[:username]
       within('.collaborators') { click_button('Request to collaborate on this score') }
 
-
       expect(current_path).to eq(scores_path)
 
       visit users_dashboard_index_path
       @user.update(username: 'tylerpporter')
-
       within('.scores') { click_link 'Funk' }
 
       within('.collaborators') do
@@ -79,10 +77,22 @@ RSpec.describe 'Collaborators Features: ', type: :feature do
       end
     end
 
+    it 'I do not see a button if i have already submitted a request' do
+      within('.collaborators') { click_button('Request to collaborate on this score') }
+      visit users_dashboard_index_path
+      within('.scores') { click_link 'Funk' }
+
+      within('.collaborators') do
+        within ('.requests') do
+          expect(page).to_not have_button('Request to collaborate on this score')
+        end
+      end
+
+    end
+
     it 'I can request to collaborate and be rejected by the owner' do
       collab_name = @user[:username]
       within('.collaborators') { click_button('Request to collaborate on this score') }
-
       visit users_dashboard_index_path
       @user.update(username: 'tylerpporter')
       within('.scores') { click_link 'Funk'  }
@@ -102,7 +112,6 @@ RSpec.describe 'Collaborators Features: ', type: :feature do
 
     it 'I can request to collaborate and be approved by the owner' do
       within('.collaborators') { click_button('Request to collaborate on this score') }
-
       visit users_dashboard_index_path
       @user.update(username: 'tylerpporter')
       within('.scores') { click_link 'Funk'  }
@@ -121,7 +130,6 @@ RSpec.describe 'Collaborators Features: ', type: :feature do
           click_button 'Approve'
         end
       end
-
       expect(current_path).to eq(scores_path)
       within('.collaborators') do
         expect(page).to_not have_content('Requests to Collaborate')
@@ -147,11 +155,9 @@ RSpec.describe 'Collaborators Features: ', type: :feature do
           click_button 'Approve'
         end
       end
-
       @user.update(username: 'eltonjohn')
       visit users_dashboard_index_path
       within('.scores') { click_link 'Funk' }
-
       within('.collaborators') { click_button('Request to collaborate on this score') }
 
       @user.update(username: 'keithjarrett')

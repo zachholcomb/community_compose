@@ -51,7 +51,7 @@
   </ul>
 
   <section class="requests">
-    <% if !@score.current_collaborator?(current_user[:username]) %>
+    <% if !@score.current_collaborator?(current_user[:username]) && !@score.user_pending_request?(current_user[:username])  %>
       <%= button_to 'Request to collaborate on this score', '/requests', params: { username: current_user[:username], score_id: @score.id } %>
     <% elsif @score.owner?(current_user[:username]) && @score.pending_requests.count > 0 %>
     <h4>Requests to Collaborate</h4>

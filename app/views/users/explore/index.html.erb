@@ -1,0 +1,11 @@
+<p>Scores From My Area</p>
+<section class='scores'>
+  <ul>
+    <% @explore_data.scores.each_with_index do |score, index| %>
+      <li id="score-<%= index %>">
+        <%= link_to score.title, scores_path(:params => {score_id: score.id}) %>
+        <%= score.owner %>
+      </li>
+    <% end %>
+  </ul>
+</section>

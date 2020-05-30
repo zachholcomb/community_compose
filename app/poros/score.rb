@@ -1,8 +1,8 @@
 class Score
   class << self
-    def create
+    def create(user_id = 'me')
       all = []
-      FlatService.get_scores.each { |score| all << Score.new(score) }
+      FlatService.get_scores(user_id).each { |score| all << Score.new(score) }
       all
     end
 
@@ -23,7 +23,7 @@ class Score
     end
   end
 
-  attr_reader :title, :id, :collaborators
+  attr_reader :title, :id, :collaborators, :owner
 
   def initialize(score)
     @title = score[:title]
@@ -47,5 +47,11 @@ class Score
 
   def pending_requests
     Request.where(score: @id)
+  end
+
+  def user_pending_request?(username)
+    return true if Request.where(score: @id).where(username: username) != []
+
+    false
   end
 end
