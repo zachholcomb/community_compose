@@ -10,6 +10,11 @@ class ScoresController < ApplicationController
     redirect_to users_dashboard_index_path
   end
 
+  def update
+    flash[:notice] = 'Your changes were saved!'
+    redirect_to users_dashboard_index_path
+  end
+
   def destroy
     Score.delete(params[:id])
     redirect_to users_dashboard_index_path

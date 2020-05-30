@@ -16,3 +16,4 @@ User.create(email: 'user_two@example.com',
 User.create(email: 'user_three@example.com',
             username:'dev.andrewreid',
             flat_id: '5ed2cb06ad6a5566efa7cfbd')
+
