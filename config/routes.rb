@@ -13,6 +13,9 @@ Rails.application.routes.draw do
   resources :scores, only: [:index, :new, :create, :destroy]
   resources :requests, only: [:create, :destroy]
 
-  get '/login', to: 'sessions#new'
-  post '/login', to: 'sessions#create'
+  # get '/login', to: 'sessions#new'
+  # post '/login', to: 'sessions#create'
+  
+  resources :users, only: [:show]
+
 end
