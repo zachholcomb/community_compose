@@ -2,7 +2,7 @@
 
 <div id="embed-container"></div>
 <%# <button id="export-xml" class="btn-cta-site">Submit Changes</button> %>
-<%= button_to 'Submit Changes', "/scores/#{@score.id}", method: :patch, id: 'export-xml' %>
+<%= button_to 'Submit Changes', "/scores/#{@score.id}", method: :patch, id: 'export-xml', class: "btn btn-primary" %>
 <script src="https://prod.flat-cdn.com/embed-js/v1.3.0/embed.min.js"></script>
 <script>
   var container = document.getElementById("embed-container");
@@ -52,18 +52,17 @@
 
   <section class="requests">
     <% if !@score.current_collaborator?(current_user[:username]) && !@score.user_pending_request?(current_user[:username])  %>
-      <%= button_to 'Request to collaborate on this score', '/requests', params: { username: current_user[:username], score_id: @score.id } %>
+      <%= button_to 'Request to collaborate on this score', '/requests', params: { username: current_user[:username], score_id: @score.id }, class: "btn btn-primary" %>
     <% elsif @score.owner?(current_user[:username]) && @score.pending_requests.count > 0 %>
     <h4>Requests to Collaborate</h4>
       <ul>
         <% @score.pending_requests.each do |request| %>
           <li><p><%= request.username %></p>
-            <p><%= button_to 'Approve', "/requests/#{request.id}", method: :delete, params: {type: 'approve', username: current_user[:username], score_id: @score.id} %>
-            <p><%= button_to 'Reject', "/requests/#{request.id}", method: :delete, params: {score_id: @score.id} %>
+            <p><%= button_to 'Approve', "/requests/#{request.id}", method: :delete, params: {type: 'approve', username: current_user[:username], score_id: @score.id}, class: "btn btn-success" %>
+            <p><%= button_to 'Reject', "/requests/#{request.id}", method: :delete, params: {score_id: @score.id}, class: "btn btn-danger" %>
           </li>
         <% end %>
       </ul>
     <% end %>
   </section>
 </section>
-
