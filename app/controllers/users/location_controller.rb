@@ -1,4 +1,4 @@
-class ProfileController < ApplicationController
+class Users::LocationController < ApplicationController
   def edit
     failure if !user_permitted?
     @user = User.find(params[:id])
@@ -12,7 +12,7 @@ class ProfileController < ApplicationController
   private
 
   def user_params
-    params.permit(:username)
+    params.permit(:zip)
   end
 
   def failure
@@ -20,7 +20,7 @@ class ProfileController < ApplicationController
   end
 
   def flash_and_redirect
-    flash[:notice] = 'Successfully updated your profile!'
+    flash[:notice] = 'Successfully updated location!'
     redirect_to user_path(params[:id])
   end
 end

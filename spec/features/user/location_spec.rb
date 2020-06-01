@@ -1,8 +1,8 @@
 require 'rails_helper'
 
 describe 'As a registered user' do
-  xscenario 'I can update my zip' do
-    user = create(:user)
+  scenario 'I can update my zip' do
+    user = create(:user, zip: '80004')
     allow_any_instance_of(ApplicationController).to receive(:current_user)
                                                 .and_return(user)
     json_user_resp = File.read('spec/fixtures/flat/user.json')
@@ -12,6 +12,15 @@ describe 'As a registered user' do
     visit users_dashboard_index_path
     click_link 'Change My Location'
 
-    expect(current_path).to eq(edit_user_path(user.id))
+    expect(user.zip).to eq('80004')
+    expect(current_path).to eq(users_edit_location_path(user.id))
+
+    fill_in :zip, with: '80005'
+    click_button 'Update Location'
+    user.reload
+
+    expect(current_path).to eq(user_path(user.id))
+    expect(page).to have_content('Successfully updated location!')
+    expect(user.zip).to eq('80005')
   end
 end

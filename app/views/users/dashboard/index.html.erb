@@ -5,6 +5,7 @@
 <p>Followers: <%= @flat_user.user_info[:followersCount] %></p>
 <p>My Scores:</p>
 <p><%= link_to 'My Profile', user_path(current_user.id) %></p>
+<p><%= link_to 'Change My Location', users_edit_location_path(current_user.id) %></p>
 <%= link_to 'Create Score', '/scores/new' %>
 <section class='scores'>
   <% if !(@flat_user.scores.empty?) %>
