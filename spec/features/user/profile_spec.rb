@@ -33,6 +33,7 @@ describe 'As a registered user' do
       click_link 'Edit Profile'
 
       expect(current_path).to eq("/users/#{user.id}/edit")
+      expect(user.username).to_not eq('kiefth')
 
       fill_in :username, with: 'kiefth'
       click_button 'Update Profile'
@@ -42,8 +43,23 @@ describe 'As a registered user' do
       expect(page).to have_content('kiefth')
       expect(user.username).to eq('kiefth')
     end
-    xscenario 'only I have access to edit my profile page' do
+    scenario 'only I have access to edit my profile page' do
+      user1 = create(:user)
+      user2 = create(:user)
 
+      visit user_path(user1.id)
+
+      expect(page).to_not have_link('Edit Profile')
+
+      allow_any_instance_of(ApplicationController).to receive(:current_user)
+                                                  .and_return(user1)
+      visit user_path(user2.id)
+
+      expect(page).to_not have_link('Edit Profile')
+
+      visit user_path(user1.id)
+
+      expect(page).to have_link('Edit Profile')
     end
   end
 end
