@@ -1,0 +1,5 @@
+<%= form_tag users_profile_path(@user.id), method: :patch do %>
+  <%= label_tag :username %>
+  <%= text_field_tag :username, @user.username %>
+  <%= submit_tag 'Update Profile' %>
+<% end %>

@@ -1,13 +1,15 @@
 
-<p>User Name: <%= @user.user_info[:username] %></p>
-<p>Number of Scores: <%= @user.user_info[:ownedPublicScoresCount] %></p>
-<p>Following: <%= @user.user_info[:followingCount] %></p>
-<p>Followers: <%= @user.user_info[:followersCount] %></p>
+<p>User Name: <%= @flat_user.user_info[:username] %></p>
+<p>Number of Scores: <%= @flat_user.user_info[:ownedPublicScoresCount] %></p>
+<p>Following: <%= @flat_user.user_info[:followingCount] %></p>
+<p>Followers: <%= @flat_user.user_info[:followersCount] %></p>
 <p>My Scores:</p>
+<p><%= link_to 'My Profile', user_path(current_user.id) %></p>
+<p><%= link_to 'Change My Location', users_edit_location_path(current_user.id) %></p>
 <%= link_to 'Create Score', '/scores/new' %>
 <section class='scores'>
-  <% if !(@user.scores.empty?) %>
-    <% @user.scores.each_with_index do |score, index| %>
+  <% if !(@flat_user.scores.empty?) %>
+    <% @flat_user.scores.each_with_index do |score, index| %>
       <div id="score-<%= index %>">
         <%= link_to score.title, scores_path(:params => {score_id: score.id}) %>
         <%= link_to 'Delete', score_path(score.id), method: :delete%>
