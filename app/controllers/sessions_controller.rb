@@ -20,9 +20,5 @@ class SessionsController < ApplicationController
     return redirect_to new_user_path(params: {flat_id: body[:user]}) if user.nil?
     session[:user_id] = user.id
     redirect_to users_dashboard_index_path
-
-    # user = User.find_by(email: params[:session][:email])
-    # session[:user_id] = user.id
-    # redirect_to users_dashboard_index_path
   end
 end

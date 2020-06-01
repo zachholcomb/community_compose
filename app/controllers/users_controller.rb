@@ -9,6 +9,7 @@ class UsersController < ApplicationController
 
   def create
     user = User.create(user_params)
+    session[:user_id] = user.id
     redirect_to users_dashboard_index_path
   end
 
@@ -18,7 +19,8 @@ class UsersController < ApplicationController
     {
       email: params[:user][:email],
       zip: params[:user][:zip],
-      flat_id: params[:flat_id]
+      flat_id: params[:flat_id],
+      username: FlatService.get_user[:username]
     }
   end
 end

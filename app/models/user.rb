@@ -3,7 +3,6 @@ class User < ApplicationRecord
   validates :flat_id, presence: true
 
   def flat_key
-    # will make dynamic later
-    ENV['FLAT_KEY']
+    FlatService.flat_key
   end
 end

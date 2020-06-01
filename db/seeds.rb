@@ -7,13 +7,12 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 User.destroy_all
 
-User.create(email: 'user_one@example.com',
-            username:'areid.sj',
-            flat_id: '5ecda42869109757b671ceaa')
-User.create(email: 'user_two@example.com',
-            username:'tylerpporter',
-            flat_id: '5ecda8f84d6bf46345bcc4c9')
-User.create(email: 'user_three@example.com',
-            username:'dev.andrewreid',
-            flat_id: '5ed2cb06ad6a5566efa7cfbd')
-
+# User.create(email: 'user_one@example.com',
+#             username:'areid.sj',
+#             flat_id: '5ecda42869109757b671ceaa')
+# User.create(email: 'user_two@example.com',
+#             username:'tylerpporter',
+#             flat_id: '5ecda8f84d6bf46345bcc4c9')
+# User.create(email: 'user_three@example.com',
+#             username:'dev.andrewreid',
+#             flat_id: '5ed2cb06ad6a5566efa7cfbd')
