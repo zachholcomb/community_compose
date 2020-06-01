@@ -1,4 +1,4 @@
-ActiveRecord::Schema.define(version: 2020_05_30_160152) do
+ActiveRecord::Schema.define(version: 2020_06_01_033417) do
 
   enable_extension "plpgsql"
 
@@ -15,6 +15,6 @@ ActiveRecord::Schema.define(version: 2020_05_30_160152) do
     t.datetime "updated_at", null: false
     t.string "username"
     t.string "flat_id"
+    t.string "zip"
   end
-
 end
