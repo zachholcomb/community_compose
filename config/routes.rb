@@ -1,5 +1,10 @@
 Rails.application.routes.draw do
-  root to: 'sessions#new'
+  # root to: 'sessions#new'
+  root to: 'welcome#index'
+
+  get '/auth/flat/callback', to: 'sessions#create'
+
+  post '/register', to: 'users#create'
 
   namespace :users do
     resources :dashboard, only: [:index]
@@ -17,5 +22,5 @@ Rails.application.routes.draw do
   resources :scores, only: [:index, :new, :create, :destroy]
   resources :requests, only: [:create, :destroy]
 
-  resources :users, only: [:show, :edit, :update]
+  resources :users, only: [:show, :edit, :update, :new, :create]
 end
