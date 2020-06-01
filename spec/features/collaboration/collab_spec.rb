@@ -111,6 +111,7 @@ RSpec.describe 'Collaborators Features: ', type: :feature do
       end
 
       expect(current_path).to eq(scores_path)
+      expect(page).to have_content('Request rejected!')
       within('.collaborators') do
         expect(page).to_not have_content(collab_name)
         expect(page).to_not have_content('Requests to Collaborate')
@@ -138,6 +139,7 @@ RSpec.describe 'Collaborators Features: ', type: :feature do
         end
       end
       expect(current_path).to eq(scores_path)
+      expect(page).to have_content('Request approved!')
       within('.collaborators') do
         expect(page).to_not have_content('Requests to Collaborate')
         expect(page).to have_content('keithjarrett')
