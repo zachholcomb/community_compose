@@ -14,4 +14,7 @@ Rails.application.routes.draw do
   resources :requests, only: [:create, :destroy]
 
   resources :users, only: [:show, :edit, :update]
+
+  get '/profile/:id/edit', to: 'profile#edit', as: :edit_profile
+  patch '/profile/:id', to: 'profile#update', as: :profile 
 end
