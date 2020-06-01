@@ -27,10 +27,13 @@ class FlatService
 
     def create_score(title)
       file = File.read('./xml_files/template.musicxml')
-      enc = "#{Base64.encode64(file)}"
-      body = { 'title': title, 'privacy': 'public', 'data': enc, 'dataEncoding': 'base64'}
-      response = conn.post('/v2/scores') do |request|
-        request.headers['content-type'] = "application/json"
+      enc = Base64.encode64(file).to_s
+      body = { 'title': title,
+               'privacy': 'public',
+               'data': enc,
+               'dataEncoding': 'base64' }
+      conn.post('/v2/scores') do |request|
+        request.headers['content-type'] = 'application/json'
         request.body = body.to_json
       end
     end

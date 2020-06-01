@@ -77,6 +77,13 @@ RSpec.describe 'Collaborators Features: ', type: :feature do
       end
     end
 
+    it 'I see a flash message confirming my request after I click the button' do
+      within('.collaborators') { click_button('Request to collaborate on this score') }
+
+      expect(current_path).to eq(scores_path)
+      expect(page).to have_content('Request to collaborate submitted')
+    end
+
     it 'I do not see a button if i have already submitted a request' do
       within('.collaborators') { click_button('Request to collaborate on this score') }
       visit users_dashboard_index_path
@@ -104,6 +111,7 @@ RSpec.describe 'Collaborators Features: ', type: :feature do
       end
 
       expect(current_path).to eq(scores_path)
+      expect(page).to have_content('Request rejected!')
       within('.collaborators') do
         expect(page).to_not have_content(collab_name)
         expect(page).to_not have_content('Requests to Collaborate')
@@ -131,6 +139,7 @@ RSpec.describe 'Collaborators Features: ', type: :feature do
         end
       end
       expect(current_path).to eq(scores_path)
+      expect(page).to have_content('Request approved!')
       within('.collaborators') do
         expect(page).to_not have_content('Requests to Collaborate')
         expect(page).to have_content('keithjarrett')

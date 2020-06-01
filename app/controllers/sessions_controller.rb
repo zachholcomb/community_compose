@@ -1,5 +1,4 @@
 class SessionsController < ApplicationController
-  
   def new; end
 
   def create
@@ -8,4 +7,3 @@ class SessionsController < ApplicationController
     redirect_to users_dashboard_index_path
   end
 end
-
