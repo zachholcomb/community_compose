@@ -2,6 +2,7 @@ class RequestsController < ApplicationController
   def create
     Request.create(score: request_params[:score_id],
                    username: request_params[:username])
+    flash[:notice] = 'Request to collaborate submitted'
     redirect_to scores_path(params: { score_id: request_params[:score_id] })
   end
 
