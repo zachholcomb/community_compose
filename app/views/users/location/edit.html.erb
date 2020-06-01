@@ -1,3 +1,5 @@
+<%= render partial: './nav/nav_bar' %>
+
 <%= form_tag users_location_path(@user.id), method: :patch do %>
   <%= label_tag :zip %>
   <%= text_field_tag :zip, @user.zip %>
