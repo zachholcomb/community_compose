@@ -1,4 +1,4 @@
-class ProfileController < ApplicationController
+class Users::ProfileController < ApplicationController
   def edit
     failure if !user_permitted?
     @user = User.find(params[:id])

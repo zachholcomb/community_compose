@@ -32,7 +32,7 @@ describe 'As a registered user' do
       visit user_path(user.id)
       click_link 'Edit Profile'
 
-      expect(current_path).to eq("/profile/#{user.id}/edit")
+      expect(current_path).to eq("/users/profile/#{user.id}/edit")
       expect(user.username).to_not eq('kiefth')
 
       fill_in :username, with: 'kiefth'
@@ -40,6 +40,7 @@ describe 'As a registered user' do
       user.reload
 
       expect(current_path).to eq(user_path(user.id))
+      expect(page).to have_content('Successfully updated your profile!')
       expect(page).to have_content('kiefth')
       expect(user.username).to eq('kiefth')
     end
@@ -57,7 +58,7 @@ describe 'As a registered user' do
 
       expect(page).to_not have_link('Edit Profile')
 
-      visit edit_profile_path(user2.id)
+      visit users_edit_profile_path(user2.id)
 
       expect(page).to have_content("The page you were looking for doesn't exist (404)")
 
