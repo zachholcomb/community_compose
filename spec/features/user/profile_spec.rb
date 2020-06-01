@@ -57,6 +57,10 @@ describe 'As a registered user' do
 
       expect(page).to_not have_link('Edit Profile')
 
+      visit edit_user_path(user2.id)
+
+      expect(page).to have_content("The page you were looking for doesn't exist (404)")
+
       visit user_path(user1.id)
 
       expect(page).to have_link('Edit Profile')
