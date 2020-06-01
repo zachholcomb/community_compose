@@ -7,12 +7,8 @@ class RequestsController < ApplicationController
   end
 
   def destroy
-    outcome = 'rejected'
-    if request_params[:type] == 'approve'
-      user = User.find_by(username: request_params[:username])
-      Score.add_collaborator(request_params[:score_id], user[:flat_id])
-      outcome = 'approved'
-    end
+    outcome = request_params[:type] == 'approve' ? 'approved' : 'rejected'
+    add_collaborator(request_params) if outcome == 'approved'
 
     Request.delete(request_params[:id].to_i)
     flash[:notice] = "Request #{outcome}!"
@@ -23,5 +19,10 @@ class RequestsController < ApplicationController
 
   def request_params
     params.permit(:id, :username, :score_id, :type)
+  end
+
+  def add_collaborator(request_params)
+    user = User.find_by(username: request_params[:username])
+    Score.add_collaborator(request_params[:score_id], user[:flat_id])
   end
 end
