@@ -19,7 +19,7 @@
   });
 
   let headers = new Headers();
-  headers.set('Authorization', 'Bearer ' + '<%= current_user.flat_key%>')
+  headers.set('Authorization', 'Bearer ' + '<%= FlatService.flat_key%>')
   headers.set('Content-Type', 'application/json')
 
   document.getElementById('export-xml').addEventListener('click', function () {
@@ -66,4 +66,3 @@
     <% end %>
   </section>
 </section>
-
