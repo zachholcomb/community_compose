@@ -4,11 +4,14 @@ class UsersController < ApplicationController
   end
 
   def edit
+    failure if !user_permitted?
     @user = User.find(params[:id])
   end
 
   def update
-    user_permitted? ? success : failure 
+    user_id = User.find(params[:id]).id
+    User.update(user_id, user_params)
+    redirect_to user_path(user_id)
   end
 
   private
@@ -17,14 +20,7 @@ class UsersController < ApplicationController
     params.permit(:username)
   end
 
-  def success
-    user_id = User.find(params[:id]).id
-    User.update(user_id, user_params)
-    redirect_to user_path(user_id)
-  end
-
   def failure
     render file: '/public/404'
   end
-
 end
