@@ -2,16 +2,14 @@
 
 <h1>Scores From My Area</h1>
 <section class='scores'>
-  <div class="row row-cols-1 row-cols-md-2">
-
+  <div class="card-columns">
     <% @explore_data.scores.each_with_index do |score, index| %>
-      <div class="card border-primary mb-3 h-5" style="max-width: 18rem;">
+      <div class="card border-primary mb-3 h-5 " style="width: 18rem;">
         <div id="score-<%= index %>" class="card-body">
           <h3 class="card-title"><%= link_to score.title, scores_path(:params => {score_id: score.id}) %></h3>
           <h6 class="card-subtitle mb-2 text-muted"><%= score.owner %></h6>
         </div>
       </div>
     <% end %>
-
   </div>
 </section>
