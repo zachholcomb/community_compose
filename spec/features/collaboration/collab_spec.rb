@@ -129,6 +129,8 @@ RSpec.describe 'Collaborators Features: ', type: :feature do
       user_two = create(:user)
       user_two.update(username: 'keithjarrett')
       within('.collaborators') { click_button('Request to collaborate on this score') }
+      Request.last.update(username: 'keithjarrett')
+
       visit users_dashboard_index_path
       @user.update(username: 'tylerpporter')
       within('.scores') { click_link 'Funk'  }
@@ -158,6 +160,9 @@ RSpec.describe 'Collaborators Features: ', type: :feature do
     it 'I do not have the ability to add collabs if i am not the owner' do
       within('.collaborators') { click_button('Request to collaborate on this score') }
       visit users_dashboard_index_path
+      user_two = create(:user)
+      user_two.update(username: 'keithjarrett')
+      Request.last.update(username: 'keithjarrett')
       @user.update(username: 'tylerpporter')
       within('.scores') { click_link 'Funk'  }
       updated_json_score_show_resp = File.read('spec/fixtures/flat/score_show_with_addtl_collab.json')
