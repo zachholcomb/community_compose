@@ -1,4 +1,5 @@
-<%= render partial: './nav/nav_bar' %>
+<%= render partial: './partials/nav_bar' %>
+<%= render partial: './partials/flash_message' %>
 
 <%= form_tag users_location_path(@user.id), method: :patch do %>
   <%= label_tag :zip %>
