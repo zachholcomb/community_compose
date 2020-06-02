@@ -42,7 +42,6 @@ RSpec.describe 'User Dashboard', type: :feature do
       within('.scores') do
         expect(page).to have_content(expected2[0][:title])
       end
-      save_and_open_page
     end
   end
 end
