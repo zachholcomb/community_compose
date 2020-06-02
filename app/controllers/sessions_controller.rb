@@ -5,7 +5,7 @@ class SessionsController < ApplicationController
       code: params[:code],
       client_id: ENV['CLIENT_ID'],
       client_secret: ENV['CLIENT_SECRET'],
-      redirect_uri: "http://localhost:3000/auth/flat/callback"
+      redirect_uri: ENV['CALLBACK']
     }
     response = Faraday.post("https://api.flat.io/oauth/access_token") do |resp|
       resp.headers['content-type'] = 'application/x-www-form-urlencoded'

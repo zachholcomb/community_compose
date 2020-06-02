@@ -10,7 +10,7 @@ describe 'As a registered user' do
     json_score_resp = File.read('spec/fixtures/flat/user_scores.json')
     stub_request(:get, "https://api.flat.io/v2/users/me/scores").to_return(status: 200, body: json_score_resp, headers: {})
     visit users_dashboard_index_path
-    click_link 'Change My Location'
+    click_link 'My Location'
 
     expect(user.zip).to eq('80004')
     expect(current_path).to eq(users_edit_location_path(user.id))
