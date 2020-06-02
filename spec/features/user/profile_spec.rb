@@ -22,49 +22,7 @@ describe 'As a registered user' do
       click_link 'My Profile'
 
       expect(current_path).to eq(user_path(user.id))
-    end
-  end
-  describe 'when I visit my profile page' do
-    scenario 'I can click a link to edit my profile' do
-      user = create(:user)
-      allow_any_instance_of(ApplicationController).to receive(:current_user)
-                                                  .and_return(user)
-      visit user_path(user.id)
-      click_link 'Edit Profile'
-
-      expect(current_path).to eq("/users/profile/#{user.id}/edit")
-      expect(user.username).to_not eq('kiefth')
-
-      fill_in :username, with: 'kiefth'
-      click_button 'Update Profile'
-      user.reload
-
-      expect(current_path).to eq(user_path(user.id))
-      expect(page).to have_content('Successfully updated your profile!')
-      expect(page).to have_content('kiefth')
-      expect(user.username).to eq('kiefth')
-    end
-    scenario 'only I have access to edit my profile page' do
-      user1 = create(:user)
-      user2 = create(:user)
-
-      visit user_path(user1.id)
-
-      expect(page).to_not have_link('Edit Profile')
-
-      allow_any_instance_of(ApplicationController).to receive(:current_user)
-                                                  .and_return(user1)
-      visit user_path(user2.id)
-
-      expect(page).to_not have_link('Edit Profile')
-
-      visit users_edit_profile_path(user2.id)
-
-      expect(page).to have_content("The page you were looking for doesn't exist (404)")
-
-      visit user_path(user1.id)
-
-      expect(page).to have_link('Edit Profile')
+      expect(page).to have_content("Flat Username: #{user.username}")
     end
   end
 end
