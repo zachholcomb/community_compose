@@ -29,7 +29,6 @@ class Score
     @title = score[:title]
     @id = score[:id]
     @collaborators = find_collaborators(score[:collaborators])
-    # @collaborators = score[:collaborators]
     @owner = score[:user][:username]
   end
 
@@ -60,7 +59,7 @@ class Score
     collaborator_records = []
     collaborators.each do |collaborator|
       user_lookup = User.find_by(username: collaborator[:user][:username])
-      collaborator_records << user_lookup if user_lookup.nil?
+      collaborator_records << user_lookup if !user_lookup.nil?
     end
     collaborator_records
   end
