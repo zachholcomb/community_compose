@@ -22,6 +22,7 @@ describe 'As a registered user' do
       click_link 'My Profile'
 
       expect(current_path).to eq(user_path(user.id))
+      expect(page).to have_content("Flat Username: #{user.username}")
     end
   end
 end
