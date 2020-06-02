@@ -60,7 +60,7 @@ class Score
     collaborator_records = []
     collaborators.each do |collaborator|
       user_lookup = User.find_by(username: collaborator[:user][:username])
-      collaborator_records << user_lookup if user_lookup != nil
+      collaborator_records << user_lookup if user_lookup.nil?
     end
     collaborator_records
   end
