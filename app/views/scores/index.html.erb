@@ -1,9 +1,7 @@
 <h1><%= @score.title %></h1>
 
 <div id="embed-container"></div>
-<%# <button id="export-xml" class="btn-cta-site">Submit Changes</button> %>
 <%= button_to 'Submit Changes', "/scores/#{@score.id}", method: :patch, id: 'export-xml' %>
-<script src="https://prod.flat-cdn.com/embed-js/v1.3.0/embed.min.js"></script>
 <script>
   var container = document.getElementById("embed-container");
   var embed = new Flat.Embed(container, {
