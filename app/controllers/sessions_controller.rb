@@ -18,4 +18,9 @@ class SessionsController < ApplicationController
     session[:user_id] = user.id
     redirect_to users_dashboard_index_path
   end
+  def destroy
+    session.clear
+    flash[:notice] = "Successfully logged out"
+    redirect_to root_path 
+  end
 end

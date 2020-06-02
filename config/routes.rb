@@ -4,6 +4,8 @@ Rails.application.routes.draw do
 
   get '/auth/flat/callback', to: 'sessions#create'
 
+  delete '/logout', to: 'sessions#destroy', as: :logout
+
   namespace :users do
     resources :dashboard, only: [:index]
     resources :explore, only: [:index]
