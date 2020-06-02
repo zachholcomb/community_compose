@@ -29,9 +29,15 @@ RSpec.describe 'User Dashboard', type: :feature do
       end
 
       expect(page).to have_content("User Name: #{expected1[:username]}")
-      expect(page).to have_content("Number of Scores: #{expected1[:ownedPublicScoreCount]}")
-      expect(page).to have_content("Following: #{expected1[:followingCount]}")
-      expect(page).to have_content("Followers: #{expected1[:followersCount]}")
+      within ('#score_count') do
+        expect(page).to have_content("#{expected1[:ownedPublicScoreCount]}")
+      end
+      within ('#following_count') do
+        expect(page).to have_content("#{expected1[:followingCount]}")
+      end
+      within ('#follower_count') do
+        expect(page).to have_content("#{expected1[:followersCount]}")
+      end
       expect(page).to have_content('My Scores:')
       within('.scores') do
         expect(page).to have_content(expected2[0][:title])

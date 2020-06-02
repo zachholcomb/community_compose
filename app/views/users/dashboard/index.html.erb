@@ -11,9 +11,9 @@
   </thead>
   <tbody>
     <tr class="table-info">
-      <th scope="row"><%= @flat_user.user_info[:ownedPublicScoresCount] %></th>
-      <th><%= @flat_user.user_info[:followingCount] %></th>
-      <th><%= @flat_user.user_info[:followersCount] %></th>
+      <th id="score_count" scope="row"><%= @flat_user.user_info[:ownedPublicScoresCount] %></th>
+      <th id="following_count"><%= @flat_user.user_info[:followingCount] %></th>
+      <th id="follower_count"><%= @flat_user.user_info[:followersCount] %></th>
     </tr>
   </tbody>
 </table>
