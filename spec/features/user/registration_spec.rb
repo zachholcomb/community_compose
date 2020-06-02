@@ -29,7 +29,7 @@ describe 'As a visitor' do
     visit '/users/new?flat_id=5ecda8f84d6bf46345bcc4c9'
     fill_in 'Email', with: 'dog@example.com'
     click_button 'Register'
-
+    
     expect(current_path).to eq(users_path)
     expect(page).to have_content("Zip can't be blank")
 
