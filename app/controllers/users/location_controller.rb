@@ -1,6 +1,6 @@
 class Users::LocationController < ApplicationController
   def edit
-    failure if !user_permitted?
+    failure unless user_permitted?
     @user = User.find(params[:id])
   end
 
