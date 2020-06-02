@@ -38,7 +38,7 @@ RSpec.describe 'User Scores Explore Page: ' do
       click_on 'Explore'
 
       within '.scores' do
-        expect(page.all("li").count).to eq(12)
+        expect(page.all("li").count).to eq(15)
       end
     end
   end
