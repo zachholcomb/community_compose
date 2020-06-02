@@ -23,6 +23,7 @@ gem 'figaro'
 gem 'omniauth-facebook'
 gem 'flat_api'
 gem 'rack-cors'
+gem 'bootstrap', '~> 4.3.1'
 
 group :development, :test do
   gem 'pry'
