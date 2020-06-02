@@ -9,8 +9,7 @@ class UsersController < ApplicationController
 
   def create
     user = User.create(user_params)
-    session[:user_id] = user.id
-    redirect_to users_dashboard_index_path
+    user.id ? success(user) : failure(user)
   end
 
   private
@@ -22,5 +21,17 @@ class UsersController < ApplicationController
       flat_id: params[:flat_id],
       username: FlatService.get_user[:username]
     }
+  end
+
+  def success(user)
+    flash[:notice] = "Welcome #{user_params[:username]} Registration Successful"
+    session[:user_id] = user.id
+    redirect_to users_dashboard_index_path
+  end
+
+  def failure(user)
+    flash[:error] = user.errors.full_messages.to_sentence
+    @user = User.new(flat_id: params[:flat_id])
+    render :new
   end
 end
