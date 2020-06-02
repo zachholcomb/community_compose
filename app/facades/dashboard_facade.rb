@@ -5,5 +5,4 @@ class DashboardFacade
     @user_info = FlatService.get_user
     @scores = Score.create
   end
-
 end

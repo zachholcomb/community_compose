@@ -20,8 +20,11 @@ class FlatService
     end
 
     def add_collaborator(score_id, user_id)
+      body = { 'user': user_id,
+               'aclWrite': true }
       conn.post("/v2/scores/#{score_id}/collaborators") do |request|
-        request.body = "{ 'user': #{user_id}, 'aclWrite': true }"
+        request.headers['content-type'] = 'application/json'
+        request.body = body.to_json
       end
     end
 

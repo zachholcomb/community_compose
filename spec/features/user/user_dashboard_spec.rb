@@ -8,7 +8,7 @@ RSpec.describe 'User Dashboard', type: :feature do
                                                   .and_return(@user)
       json_user_resp = File.read('spec/fixtures/flat/user.json')
       stub_request(:get, "https://api.flat.io/v2/me").to_return(status: 200, body: json_user_resp, headers: {})
-      json_score_resp = File.read('spec/fixtures/flat/user_scores.json')
+      json_score_resp = File.read('spec/fixtures/flat/multiple_user_scores.json')
       stub_request(:get, "https://api.flat.io/v2/users/me/scores").to_return(status: 200, body: json_score_resp, headers: {})
       visit users_dashboard_index_path
     end
@@ -29,9 +29,15 @@ RSpec.describe 'User Dashboard', type: :feature do
       end
 
       expect(page).to have_content("User Name: #{expected1[:username]}")
-      expect(page).to have_content("Number of Scores: #{expected1[:ownedPublicScoreCount]}")
-      expect(page).to have_content("Following: #{expected1[:followingCount]}")
-      expect(page).to have_content("Followers: #{expected1[:followersCount]}")
+      within ('#score_count') do
+        expect(page).to have_content("#{expected1[:ownedPublicScoreCount]}")
+      end
+      within ('#following_count') do
+        expect(page).to have_content("#{expected1[:followingCount]}")
+      end
+      within ('#follower_count') do
+        expect(page).to have_content("#{expected1[:followersCount]}")
+      end
       expect(page).to have_content('My Scores:')
       within('.scores') do
         expect(page).to have_content(expected2[0][:title])

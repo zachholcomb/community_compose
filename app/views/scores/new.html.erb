@@ -1,3 +1,6 @@
+<%= render partial: './partials/nav_bar' %>
+<%= render partial: './partials/flash_message' %>
+
 <%= form_tag scores_path, method: :post do %>
   <%= label_tag :title, 'Title:' %>
   <%= text_field_tag :title %>

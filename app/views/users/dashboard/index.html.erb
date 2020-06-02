@@ -1,19 +1,42 @@
+<%= render partial: './partials/nav_bar' %>
+<%= render partial: './partials/flash_message' %>
 
-<p>User Name: <%= @flat_user.user_info[:username] %></p>
-<p>Number of Scores: <%= @flat_user.user_info[:ownedPublicScoresCount] %></p>
-<p>Following: <%= @flat_user.user_info[:followingCount] %></p>
-<p>Followers: <%= @flat_user.user_info[:followersCount] %></p>
-<p>My Scores:</p>
+<h1>User Name: <%= @flat_user.user_info[:username] %></h1>
+<img src= "<%= @flat_user.user_info[:picture] %>" alt="..." class="img-thumbnail">
+<table class="table-sm">
+  <thead>
+    <tr>
+      <th scope="col">Scores</th>
+      <th scope="col">Following</th>
+      <th scope="col">Followers</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr class="table-info">
+      <th id="score_count" scope="row"><%= @flat_user.user_info[:ownedPublicScoresCount] %></th>
+      <th id="following_count"><%= @flat_user.user_info[:followingCount] %></th>
+      <th id="follower_count"><%= @flat_user.user_info[:followersCount] %></th>
+    </tr>
+  </tbody>
+</table>
+
+
 <p><%= link_to 'My Profile', user_path(current_user.id) %></p>
 <p><%= link_to 'Change My Location', users_edit_location_path(current_user.id) %></p>
 <%= link_to 'Create Score', '/scores/new' %>
+
+<h2>My Scores:</h2>
 <section class='scores'>
-  <% if !(@flat_user.scores.empty?) %>
-    <% @flat_user.scores.each_with_index do |score, index| %>
-      <div id="score-<%= index %>">
-        <%= link_to score.title, scores_path(:params => {score_id: score.id}) %>
-        <%= link_to 'Delete', score_path(score.id), method: :delete%>
+  <div class="card-columns">
+    <% if !(@flat_user.scores.empty?) %>
+      <% @flat_user.scores.each_with_index do |score, index| %>
+      <div class="card border-primary mb-3 h-5 " style="width: 18rem;">
+        <div id="score-<%= index %>" class="card-body">
+          <h3 class="card-title"><%= link_to score.title, scores_path(:params => {score_id: score.id}) %></h3>
+          <h6 class="card-subtitle mb-2 text-muted"><%= link_to 'Delete', score_path(score.id), method: :delete%></h6>
+        </div>
       </div>
+      <% end %>
     <% end %>
-  <% end %>
+  </div>
 </section>
