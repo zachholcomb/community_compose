@@ -21,6 +21,6 @@ class Users::LocationController < ApplicationController
 
   def flash_and_redirect
     flash[:notice] = 'Successfully updated location!'
-    redirect_to user_path(params[:id])
+    redirect_to users_dashboard_index_path
   end
 end

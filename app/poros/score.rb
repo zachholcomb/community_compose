@@ -14,8 +14,8 @@ class Score
       FlatService.delete_score(score_id)
     end
 
-    def new_score(score_id)
-      FlatService.create_score(score_id)
+    def new_score(title)
+      FlatService.create_score(title)
     end
 
     def add_collaborator(score_id, user_id)

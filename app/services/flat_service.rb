@@ -32,10 +32,11 @@ class FlatService
                'privacy': 'public',
                'data': enc,
                'dataEncoding': 'base64' }
-      conn.post('/v2/scores') do |request|
+      resp = conn.post('/v2/scores') do |request|
         request.headers['content-type'] = 'application/json'
         request.body = body.to_json
       end
+      get_json(resp)
     end
 
     private

@@ -19,7 +19,7 @@ describe 'As a registered user' do
     click_button 'Update Location'
     user.reload
 
-    expect(current_path).to eq(user_path(user.id))
+    expect(current_path).to eq(users_dashboard_index_path)
     expect(page).to have_content('Successfully updated location!')
     expect(user.zip).to eq('80005')
   end
