@@ -1,7 +1,4 @@
-require 'uri'
 class SessionsController < ApplicationController
-  def new; end
-
   def create
     data = {
       grant_type: 'authorization_code',
