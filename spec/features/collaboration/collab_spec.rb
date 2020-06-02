@@ -32,12 +32,19 @@ RSpec.describe 'Collaborators Features: ', type: :feature do
     end
 
     it 'I can see the collaborators on the score' do
-      expect(current_path).to eq(scores_path)
+      visit users_dashboard_index_path
+      @user.update(username: 'tylerpporter')
+      within('.scores') { click_link 'Funk' }
+
       within('.collaborators') do
         expect(page.all("li").count).to eq(1)
         expect(page).to have_content('tylerpporter')
+        click_link 'tylerpporter'
       end
+
+      expect(page).to have_current_path("/users/#{@user.id}")
     end
+
 
     it 'I see a button to request to collaborate if it is not my score' do
       within('.collaborators') do
@@ -119,6 +126,8 @@ RSpec.describe 'Collaborators Features: ', type: :feature do
     end
 
     it 'I can request to collaborate and be approved by the owner' do
+      user_two = create(:user)
+      user_two.update(username: 'keithjarrett')
       within('.collaborators') { click_button('Request to collaborate on this score') }
       visit users_dashboard_index_path
       @user.update(username: 'tylerpporter')

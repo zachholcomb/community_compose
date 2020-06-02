@@ -48,7 +48,8 @@
   <h3>Collaborators</h3>
   <ul>
   <% @score.collaborators.each do |collaborator| %>
-    <li><p><%= collaborator[:user][:username] %></p></li>
+    <li><p><%= link_to collaborator.username, "/users/#{collaborator.id}" %></p></li>
+    
   <% end %>
   </ul>
 

@@ -28,13 +28,14 @@ class Score
   def initialize(score)
     @title = score[:title]
     @id = score[:id]
-    @collaborators = score[:collaborators]
+    @collaborators = find_collaborators(score[:collaborators])
+    # @collaborators = score[:collaborators]
     @owner = score[:user][:username]
   end
 
   def current_collaborator?(username)
     @collaborators.each do |collab|
-      return true if collab[:user][:username] == username
+      return true if collab[:username] == username
     end
     false
   end
@@ -53,5 +54,14 @@ class Score
     return true if Request.where(score: @id).where(username: username) != []
 
     false
+  end
+
+  def find_collaborators(collaborators)
+    collaborator_records = []
+    collaborators.each do |collaborator|
+      user_lookup = User.find_by(username: collaborator[:user][:username])
+      collaborator_records << user_lookup if user_lookup != nil
+    end
+    collaborator_records
   end
 end
