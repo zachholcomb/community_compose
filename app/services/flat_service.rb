@@ -29,15 +29,9 @@ class FlatService
     end
 
     def create_score(title)
-      file = File.read('./xml_files/template.musicxml')
-      enc = Base64.encode64(file).to_s
-      body = { 'title': title,
-               'privacy': 'public',
-               'data': enc,
-               'dataEncoding': 'base64' }
       resp = conn.post('/v2/scores') do |request|
         request.headers['content-type'] = 'application/json'
-        request.body = body.to_json
+        request.body = body(title, template).to_json
       end
       get_json(resp)
     end
@@ -52,6 +46,20 @@ class FlatService
 
     def get_json(resp)
       JSON.parse(resp.body, symbolize_names: true)
+    end
+
+    def body(title, enc)
+      {
+        'title': title,
+        'privacy': 'public',
+        'data': enc,
+        'dataEncoding': 'base64'
+      }
+    end
+
+    def template
+      file = File.read('./xml_files/template.musicxml')
+      Base64.encode64(file).to_s
     end
   end
 end

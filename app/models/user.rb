@@ -7,6 +7,6 @@ class User < ApplicationRecord
   validates :instruments, presence: true
 
   def distance(distance_list)
-    distance_list[self.zip]
+    distance_list[zip]
   end
 end
