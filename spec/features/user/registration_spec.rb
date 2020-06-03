@@ -10,6 +10,9 @@ describe 'As a visitor' do
     visit '/users/new?flat_id=5ecda8f84d6bf46345bcc4c9'
     fill_in 'Email', with: 'dog@example.com'
     fill_in 'Zip', with: '80005'
+    fill_in 'About', with: 'I like music. Music likes me.'
+    fill_in 'Genres Of Interest', with: 'Rock, Pop, Hip-hop'
+    fill_in 'Instruments I Play', with: 'Drums'
     click_button 'Register'
 
     user = User.last
@@ -28,13 +31,18 @@ describe 'As a visitor' do
 
     visit '/users/new?flat_id=5ecda8f84d6bf46345bcc4c9'
     fill_in 'Email', with: 'dog@example.com'
+    fill_in 'About', with: 'I like music. Music likes me.'
+    fill_in 'Instruments I Play', with: 'Drums'
     click_button 'Register'
-    
+
     expect(current_path).to eq(users_path)
-    expect(page).to have_content("Zip can't be blank")
+    expect(page).to have_content("Zip can't be blank and Interests can't be blank")
 
     fill_in 'Email', with: 'dog@example.com'
     fill_in 'Zip', with: '80005'
+    fill_in 'About', with: 'I like music. Music likes me.'
+    fill_in 'Genres Of Interest', with: 'Rock, Pop, Hip-hop'
+    fill_in 'Instruments I Play', with: 'Drums'
     click_button 'Register'
 
     expect(current_path).to eq(users_dashboard_index_path)

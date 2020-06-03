@@ -7,6 +7,9 @@ describe 'As a registered user' do
       visit user_path(user.id)
 
       expect(page).to have_content("Flat Username: #{user.username}")
+      expect(page).to have_content("About: #{user.about}")
+      expect(page).to have_content("Genres Of Interest: #{user.interests}")
+      expect(page).to have_content("Instruments I Play: #{user.instruments}")
     end
   end
   describe 'when I visit my dashboard' do
