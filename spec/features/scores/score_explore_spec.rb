@@ -8,6 +8,11 @@ RSpec.describe 'User Scores Explore Page: ' do
       allow_any_instance_of(ApplicationController).to receive(:current_user)
                                                   .and_return(@user)
 
+
+      @json_zips_resp = File.read('spec/fixtures/microservice/location.json')
+      stub_request(:get, "https://cc-location-api.herokuapp.com/#{@user.zip}")
+                  .to_return(body: @json_zips_resp)
+
       json_user_resp = File.read('spec/fixtures/flat/user.json')
       stub_request(:get, "https://api.flat.io/v2/me").to_return(status: 200, body: json_user_resp, headers: {})
 
@@ -32,15 +37,6 @@ RSpec.describe 'User Scores Explore Page: ' do
       click_on 'Explore'
 
       expect(page).to have_current_path('/users/explore')
-    end
-
-    it 'can see scores from my area' do
-      click_on 'Explore'
-
-      within '.scores' do
-        expect(page).to have_css('#score-0')
-        expect(page).to have_css('#score-14')
-      end
     end
   end
 end
