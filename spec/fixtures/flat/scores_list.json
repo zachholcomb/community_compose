@@ -1,0 +1,186 @@
+[
+  {
+  "id": "5ed093f4a892cd59c611e0fc",
+  "title": "Funk",
+  "tags": [],
+  "license": "copyright",
+  "numberMeasures": 1,
+  "mainTempoQpm": 80,
+  "mainKeySignature": 0,
+  "privacy": "public",
+  "user": {
+    "username": "114408867720670700408",
+    "name": "Zach Holcomb",
+    "printableName": "Zach Holcomb",
+    "id": "5ecd31d7f0aa2b501cf89bd5",
+    "organizationRole": null,
+    "instruments": [],
+    "picture": "https://lh4.googleusercontent.com/-PNaaNoCKTk8/AAAAAAAAAAI/AAAAAAAAAAA/AMZuucnFf3AAQt1QC_agjAGTwTgd3ZxWxQ/photo.jpg",
+    "registrationDate": "2020-05-26T15:12:23.611Z",
+    "htmlUrl": "https://flat.io/114408867720670700408",
+    "starredScoresCount": 0,
+    "likedScoresCount": 0,
+    "followersCount": 0,
+    "followingCount": 0,
+    "ownedPublicScoresCount": 1,
+    "isPowerUser": false,
+    "isFlatTeam": false
+  },
+  "htmlUrl": "https://flat.io/score/5ed093f4a892cd59c611e0fc-my-new-score",
+  "creationDate": "2020-05-29T04:47:48.373Z",
+  "modificationDate": "2020-05-29T04:47:48.375Z",
+  "parentScore": "5ed0115cea0e303c05cc3545",
+  "instruments": [
+    "keyboards.piano"
+  ],
+  "samples": [
+    "keyboards.piano"
+  ],
+  "likes": {
+    "total": 0,
+    "weekly": 0,
+    "monthly": 0
+  },
+  "comments": {
+    "total": 0,
+    "unique": 0,
+    "weekly": 0,
+    "monthly": 0
+  },
+  "plays": {
+    "total": 0,
+    "weekly": 0,
+    "monthly": 0
+  },
+  "views": {
+    "total": 0,
+    "weekly": 0,
+    "monthly": 0
+  },
+  "collections": [
+    "5ecd31eb5007b757b53f37e1"
+  ],
+  "rights": {
+    "isCollaborator": true,
+    "aclAdmin": true,
+    "aclWrite": true,
+    "aclRead": true
+  },
+  "collaborators": [
+    {
+      "user": {
+        "username": "114408867720670700408",
+        "name": "Zach Holcomb",
+        "printableName": "Zach Holcomb",
+        "id": "5ecd31d7f0aa2b501cf89bd5",
+        "organizationRole": null,
+        "instruments": [],
+        "picture": "https://lh4.googleusercontent.com/-PNaaNoCKTk8/AAAAAAAAAAI/AAAAAAAAAAA/AMZuucnFf3AAQt1QC_agjAGTwTgd3ZxWxQ/photo.jpg",
+        "registrationDate": "2020-05-26T15:12:23.611Z",
+        "htmlUrl": "https://flat.io/114408867720670700408",
+        "starredScoresCount": 0,
+        "likedScoresCount": 0,
+        "followersCount": 0,
+        "followingCount": 0,
+        "ownedPublicScoresCount": 1,
+        "isPowerUser": false,
+        "isFlatTeam": false
+      },
+      "aclRead": true,
+      "aclAdmin": true,
+      "aclWrite": true
+    }]},
+    {
+      "id": "5ed093f4a892cd59c611e0fc",
+      "title": "Country",
+      "tags": [],
+      "license": "copyright",
+      "numberMeasures": 1,
+      "mainTempoQpm": 80,
+      "mainKeySignature": 0,
+      "privacy": "public",
+      "user": {
+        "username": "114408867720670700408",
+        "name": "Zach Holcomb",
+        "printableName": "Zach Holcomb",
+        "id": "5ecd31d7f0aa2b501cf89bd5",
+        "organizationRole": null,
+        "instruments": [],
+        "picture": "https://lh4.googleusercontent.com/-PNaaNoCKTk8/AAAAAAAAAAI/AAAAAAAAAAA/AMZuucnFf3AAQt1QC_agjAGTwTgd3ZxWxQ/photo.jpg",
+        "registrationDate": "2020-05-26T15:12:23.611Z",
+        "htmlUrl": "https://flat.io/114408867720670700408",
+        "starredScoresCount": 0,
+        "likedScoresCount": 0,
+        "followersCount": 0,
+        "followingCount": 0,
+        "ownedPublicScoresCount": 1,
+        "isPowerUser": false,
+        "isFlatTeam": false
+      },
+      "htmlUrl": "https://flat.io/score/5ed093f4a892cd59c611e0fc-my-new-score",
+      "creationDate": "2020-05-29T04:47:48.373Z",
+      "modificationDate": "2020-05-29T04:47:48.375Z",
+      "parentScore": "5ed0115cea0e303c05cc3545",
+      "instruments": [
+        "keyboards.piano"
+      ],
+      "samples": [
+        "keyboards.piano"
+      ],
+      "likes": {
+        "total": 0,
+        "weekly": 0,
+        "monthly": 0
+      },
+      "comments": {
+        "total": 0,
+        "unique": 0,
+        "weekly": 0,
+        "monthly": 0
+      },
+      "plays": {
+        "total": 0,
+        "weekly": 0,
+        "monthly": 0
+      },
+      "views": {
+        "total": 0,
+        "weekly": 0,
+        "monthly": 0
+      },
+      "collections": [
+        "5ecd31eb5007b757b53f37e1"
+      ],
+      "rights": {
+        "isCollaborator": true,
+        "aclAdmin": true,
+        "aclWrite": true,
+        "aclRead": true
+      },
+      "collaborators": [
+        {
+          "user": {
+            "username": "114408867720670700408",
+            "name": "Zach Holcomb",
+            "printableName": "Zach Holcomb",
+            "id": "5ecd31d7f0aa2b501cf89bd5",
+            "organizationRole": null,
+            "instruments": [],
+            "picture": "https://lh4.googleusercontent.com/-PNaaNoCKTk8/AAAAAAAAAAI/AAAAAAAAAAA/AMZuucnFf3AAQt1QC_agjAGTwTgd3ZxWxQ/photo.jpg",
+            "registrationDate": "2020-05-26T15:12:23.611Z",
+            "htmlUrl": "https://flat.io/114408867720670700408",
+            "starredScoresCount": 0,
+            "likedScoresCount": 0,
+            "followersCount": 0,
+            "followingCount": 0,
+            "ownedPublicScoresCount": 1,
+            "isPowerUser": false,
+            "isFlatTeam": false
+          },
+          "aclRead": true,
+          "aclAdmin": true,
+          "aclWrite": true
+        }
+      ]
+    }
+  ]

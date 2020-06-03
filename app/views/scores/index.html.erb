@@ -1,5 +1,16 @@
-<h1><%= @score.title %></h1>
-
+<h1 id='score-title'><%= @score.title %></h1>
+<%= select_tag 'scores-menu', options_from_collection_for_select(@score_bank.all_scores, :id, :title) %>
+<script>
+    $(function(){
+      $('#scores-menu').bind('change', function () {
+         var url = "/scores?score_id=" + $(this).val()
+          if (url) {
+              window.location.replace(url);
+          }
+          return false;
+      });
+    });
+</script>
 <div id="embed-container"></div>
 
 <%= button_to 'Submit Changes', "/scores/#{@score.id}", method: :patch, id: 'export-xml' %>
@@ -39,6 +50,10 @@
       mode: 'cors'
       })
     };
+  // document.getElementById('scores-menu').addEventListener('click', function () {
+  //   function getScore(score)
+  //     });
+  //   });
 </script>
 
 <section class="collaborators">
