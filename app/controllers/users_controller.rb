@@ -19,7 +19,10 @@ class UsersController < ApplicationController
       email: params[:user][:email],
       zip: params[:user][:zip],
       flat_id: params[:flat_id],
-      username: FlatService.get_user[:username]
+      username: FlatService.get_user[:username],
+      about: params[:user][:about],
+      interests: params[:user][:interests],
+      instruments: params[:user][:instruments]
     }
   end
 
