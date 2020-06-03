@@ -42,6 +42,7 @@ end
 group :test do
   gem 'webmock'
   gem 'vcr'
+  gem 'orderly'
 end
 
 group :development do
