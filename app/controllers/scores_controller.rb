@@ -1,6 +1,7 @@
 class ScoresController < ApplicationController
   def index
     @score = Score.show(params[:score_id])
+    @score_bank = ScoreFacade.new
   end
 
   def new; end
