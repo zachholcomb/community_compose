@@ -36,4 +36,27 @@ RSpec.describe 'As a User', type: :feature do
     expect(page).to have_content(expected[0][:title])
     expect(page).to have_css('#embed-container')
   end
+
+  it 'I can select a score from the dropdown menu' do
+    json_score_resp = File.read('spec/fixtures/flat/score_show.json')
+    
+    expected = nil
+    File.open('spec/fixtures/flat/user_scores.json') do |file|
+      file.each_line do |line|
+        expected = JSON.parse(line, symbolize_names: true)
+      end
+    end
+    
+    stub_request(:get, "https://api.flat.io/v2/scores/#{expected[0][:id]}").to_return(status: 200, body: json_score_resp, headers: {})
+    
+    
+    within('.scores') do
+      click_link 'Funk'
+    end
+    
+    select 'Country', from: 'score-menu'
+
+    expect(page).to have_content('Country')
+    expect(page).not_to have_content('Funk')
+  end
 end
