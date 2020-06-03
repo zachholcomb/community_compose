@@ -1,18 +1,11 @@
 <h1 id='score-title'><%= @score.title %></h1>
-<%= select_tag 'scores-menu', options_from_collection_for_select(@score_bank.all_scores, :id, :title) %>
-<script>
-    $(function(){
-      $('#scores-menu').bind('change', function () {
-         var url = "/scores?score_id=" + $(this).val()
-          if (url) {
-              window.location.replace(url);
-          }
-          return false;
-      });
-    });
-</script>
+<select id='scores-menu' onchange="window.location=this.value">
+  <option>Select a Score</option>
+  <% @score_bank.all_scores.each do |score| %> 
+    <option value="/scores?score_id=<%= score.id %>"><%= score.title %></option>
+  <% end %>
+</select>
 <div id="embed-container"></div>
-
 <%= button_to 'Submit Changes', "/scores/#{@score.id}", method: :patch, id: 'export-xml' %>
 <script>
   var container = document.getElementById("embed-container");
@@ -27,35 +20,27 @@
       "controlsPosition": "top"
     },
   });
-
   var headers = new Headers();
-  headers.set('Authorization', 'Bearer ' + '<%= FlatService.flat_key%>')
-  headers.set('Content-Type', 'application/json')
-
+    headers.set('Authorization', 'Bearer ' + '<%= FlatService.flat_key%>')
+    headers.set('Content-Type', 'application/json')
   document.getElementById('export-xml').addEventListener('click', function () {
     embed.getMusicXML().then(function (xml) {
       editScore(btoa(xml))
       });
     });
-
-    function editScore(document) { fetch('https://api.flat.io/v2/scores/<%= @score.id %>/revisions' , {
-      method: 'post',
-      headers: headers,
-      body: JSON.stringify({
-             "title": "<%= @score.title %>",
-             "data": `${document}`,
-             "dataEncoding": "base64",
-             "autosave": true
-        }),
-      mode: 'cors'
-      })
-    };
-  // document.getElementById('scores-menu').addEventListener('click', function () {
-  //   function getScore(score)
-  //     });
-  //   });
+  function editScore(document) { fetch('https://api.flat.io/v2/scores/<%= @score.id %>/revisions' , {
+    method: 'post',
+    headers: headers,
+    body: JSON.stringify({
+            "title": "<%= @score.title %>",
+            "data": `${document}`,
+            "dataEncoding": "base64",
+            "autosave": true
+      }),
+    mode: 'cors'
+    })
+  };
 </script>
-
 <section class="collaborators">
   <h3>Collaborators</h3>
   <ul>
@@ -63,7 +48,6 @@
     <li><p><%= link_to collaborator.username, "/users/#{collaborator.id}" %></p></li>
   <% end %>
   </ul>
-
   <section class="requests">
     <% if !@score.current_collaborator?(current_user[:username]) && !@score.user_pending_request?(current_user[:username])  %>
       <%= button_to 'Request to collaborate on this score', '/requests', params: { username: current_user[:username], score_id: @score.id }, class: "btn btn-primary" %>
