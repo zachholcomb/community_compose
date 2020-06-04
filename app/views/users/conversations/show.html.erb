@@ -1,0 +1,17 @@
+<p><%= @conversation.subject %></p>
+<% @conversation.receipts_for(current_user).each do |receipt| %>
+  <div id='message-<%= receipt.id%>'>
+    <% if !(receipt.deleted) %>
+      <div><%= receipt.message.sender.name %> commented:</div>
+        <p><%= receipt.message.body %></p>
+        <P><%= link_to 'Delete Message', "/users/conversations/#{@conversation.id}/messages/#{receipt.id}", method: :delete%>
+    </div>
+    <% end %>
+<% end %>
+
+<%= form_tag users_conversation_messages_path(@conversation), method: :post do %>
+  <div>
+    <%= text_area_tag :body %>
+  </div>
+  <%= submit_tag 'Reply'%>
+<% end %>
