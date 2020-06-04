@@ -113,3 +113,18 @@
   color: #0384fc;
   border-radius: 25px;
 }
+.collabs {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.7);
+  width: 300px;
+  max-height: 900px;
+  margin: auto;
+  margin-top: 50px;
+  text-align: left;
+  background-color: #fcba03;
+  color: #0384fc;
+  border-radius: 25px;
+  padding-left: 50px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+
+}
