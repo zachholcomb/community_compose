@@ -9,4 +9,8 @@ class User < ApplicationRecord
   def distance(distance_list)
     distance_list[zip]
   end
+
+  def picture
+    FlatService.get_user[:picture]
+  end
 end

@@ -1,5 +1,5 @@
 class ExploreFacade
-  attr_reader :scores
+  attr_reader :scores, :distances, :users
 
   def initialize(current_user)
     @distances = Location.distances(current_user.zip)
