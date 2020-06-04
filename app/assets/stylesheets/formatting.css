@@ -28,3 +28,16 @@
   font-family: "Arial Black", Gadget, sans-serif;
   color: #0384fc;
 }
+.explore-header {
+  margin: auto;
+  margin-bottom: 20px;
+  margin-top: 20px;
+  text-align: center;
+  border-radius: 25px;
+  background: #fcba03;
+  padding: 0px;
+  width: 50%;
+  height: 50px;
+  font-family: "Arial Black", Gadget, sans-serif;
+  color: #0384fc;
+}
