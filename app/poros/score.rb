@@ -32,6 +32,11 @@ class Score
     @owner = score[:user][:username]
   end
 
+  def distance(distances)
+    owner = User.find_by(username: @owner)
+    owner.distance(distances).round(1)
+  end
+
   def current_collaborator?(username)
     @collaborators.each do |collab|
       return true if collab[:username] == username
