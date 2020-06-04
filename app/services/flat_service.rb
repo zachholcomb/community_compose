@@ -28,10 +28,10 @@ class FlatService
       end
     end
 
-    def create_score(title)
+    def create_score(title, clef)
       resp = conn.post('/v2/scores') do |request|
         request.headers['content-type'] = 'application/json'
-        request.body = body(title, template).to_json
+        request.body = body(title, template(clef)).to_json
       end
       get_json(resp)
     end
@@ -57,8 +57,15 @@ class FlatService
       }
     end
 
-    def template
-      file = File.read('./xml_files/template.musicxml')
+    def template(clef)
+      case clef
+      when "Treble"
+        file = File.read('./xml_files/template.musicxml')
+      when "Bass"
+        file = File.read('./xml_files/bass_template.musicxml')
+      else
+        file = File.read('./xml_files/combo.musicxml')
+      end
       Base64.encode64(file).to_s
     end
   end
