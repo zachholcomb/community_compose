@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-
   root to: 'welcome#index'
   # root to: "videopages#home"
 
@@ -16,6 +15,10 @@ Rails.application.routes.draw do
     patch '/location/:id', to: 'location#update', as: :location
     get '/profile/:id/edit', to: 'profile#edit', as: :edit_profile
     patch '/profile/:id', to: 'profile#update', as: :profile
+
+    resources :conversations do
+      resources :messages
+    end
   end
 
   resources :scores, only: [:index, :new, :create, :update, :destroy]
