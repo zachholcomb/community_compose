@@ -87,3 +87,16 @@
 .profile-info {
   font-size: 25px;
 }
+.form-style {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.7);
+  width: 700px;
+  height: 200px;
+  margin: auto;
+  margin-top: 50px;
+  text-align: center;
+  font-size: 30px;
+  padding-top: 40px;
+  background-color: #fcba03;
+  color: #0384fc;
+  border-radius: 25px;
+}
