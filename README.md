@@ -12,10 +12,13 @@ ___
 After authenticating with OAuth 2.0 via Flat.io and registering for Community Compose, users can **create a score** by clicking the link on the dashboard. After providing a name & specifying the type, the user will be redirected to a Flat.io interface to write their new piece of music.
 
 On the **dashboard**, users can view all scores they own and collaborate on, listed in descending order of the most recently edited.
+![dashboard](https://github.com/zachholcomb/community_compose/blob/e40b04e4c85ccacc0f798c7a1f65365bc91b01c3/dashboard.png)
 
 Users can **edit a score** and **playback** a score after selecting it from the dashboard.
+![edit](https://github.com/zachholcomb/community_compose/blob/e40b04e4c85ccacc0f798c7a1f65365bc91b01c3/edit.png)
 
 The **explore** page will show users scores from other users in their geographic area (defined as zip codes within 10 miles of the user's zip code).
+![explore](https://github.com/zachholcomb/community_compose/blob/e40b04e4c85ccacc0f798c7a1f65365bc91b01c3/explore.png)
 
 When viewing a score composed by somone else, a user can **request to collaborate**. Once approved by the score's owner, they'll have full edit access to that score.
 
