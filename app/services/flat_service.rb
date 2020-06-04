@@ -58,15 +58,16 @@ class FlatService
     end
 
     def template(clef)
-      case clef
-      when "Treble"
-        file = File.read('./xml_files/template.musicxml')
-      when "Bass"
-        file = File.read('./xml_files/bass_template.musicxml')
-      else
-        file = File.read('./xml_files/combo.musicxml')
-      end
+      file = template_select(clef)
       Base64.encode64(file).to_s
+    end
+
+    def template_select(clef)
+      return File.read('./xml_files/template.musicxml') if clef == 'Treble'
+
+      return File.read('./xml_files/bass_template.musicxml') if clef == 'Bass'
+
+      File.read('./xml_files/combo.musicxml')
     end
   end
 end
