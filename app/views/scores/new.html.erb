@@ -1,7 +1,9 @@
 <body class="create-score"> 
-  <%= form_tag scores_path, method: :post do %>
-    <%= label_tag :title, 'Title:' %>
-    <%= text_field_tag :title %>
-    <%= submit_tag 'Submit Score'%>
-  <% end %>
+ <%= form_tag scores_path, method: :post do %>
+   <%= label_tag :title, 'Title:' %>
+   <%= text_field_tag :title %>
+   <%= select_tag :clef, "<option>Treble</option><option>Bass</option><option>Both</option>".html_safe %>
+   <%= submit_tag 'Submit Score'%>
+ <% end %>
 </body>
+
