@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
   root to: 'welcome#index'
+  # root to: "videopages#home"
+
+  # get 'videopages/home'
 
   get '/auth/flat/callback', to: 'sessions#create'
 

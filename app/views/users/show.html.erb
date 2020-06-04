@@ -1,5 +1,13 @@
-<h1>Flat Username: <%= @user.username %></h1>
+<body class='profile'>
+  <div class="profile-card">
+    <img src= "<%= @user.picture %>" alt="Profile" class='profile-pic' width='400' height='400'>
+    <h1 class='username'><%= @user.username %></h1>
+    <p class="profile-title"><%= @user.about %></p>
+    <div class="profile-info">
+      <p><span style='font-weight:bold;'>Genres Of Interest:</span> <span style='color: #0384fc;'><%= @user.interests %></span></p>
+      <p><span style='font-weight:bold;'>Instruments I Play:</span> <span style='color: #0384fc;'><%= @user.instruments %></span></p>
+      <p class='message'> Message </p>
+    </div>
+  </div>
+</body>
 
-<p>About: <%= @user.about %></p>
-<p>Genres Of Interest: <%= @user.interests %></p>
-<p>Instruments I Play: <%= @user.instruments %></p>

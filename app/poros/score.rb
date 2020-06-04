@@ -14,8 +14,8 @@ class Score
       FlatService.delete_score(score_id)
     end
 
-    def new_score(title)
-      FlatService.create_score(title)
+    def new_score(title, clef)
+      FlatService.create_score(title, clef)
     end
 
     def add_collaborator(score_id, user_id)
@@ -30,6 +30,11 @@ class Score
     @id = score[:id]
     @collaborators = find_collaborators(score[:collaborators])
     @owner = score[:user][:username]
+  end
+
+  def distance(distances)
+    owner = User.find_by(username: @owner)
+    owner.distance(distances).round(1)
   end
 
   def current_collaborator?(username)

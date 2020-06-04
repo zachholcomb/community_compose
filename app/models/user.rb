@@ -19,4 +19,8 @@ class User < ApplicationRecord
   def name
     return self.username
   end
+  
+  def picture
+    FlatService.get_user[:picture]
+  end
 end

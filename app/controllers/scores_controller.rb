@@ -7,7 +7,7 @@ class ScoresController < ApplicationController
   def new; end
 
   def create
-    score = Score.new_score(params[:title])
+    score = Score.new_score(params[:title], params[:clef])
     redirect_to "/scores?score_id=#{score[:id]}"
   end
 
