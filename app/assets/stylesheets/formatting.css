@@ -57,18 +57,19 @@
   margin: auto;
   margin-top: 10px;
   margin-bottom: 10px;
+  border-radius: 50%;
 }
-.card {
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+.profile-card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.7);
   width: 700px;
   height: 900px;
   margin: auto;
   margin-top: 50px;
   text-align: center;
 }
-.title {
-  color: grey;
-  font-size: 18px;
+.profile-title {
+  color: #48494a;
+  font-size: 20px;
   background-color: lightGray;
 }
 .message {
@@ -82,4 +83,7 @@
   cursor: pointer;
   width: 100%;
   font-size: 18px;
+}
+.profile-info {
+  font-size: 25px;
 }
