@@ -1,5 +1,7 @@
 body {
-  padding: 1rem;
-  background-image: url(background_splash2.jpg);
+  background: url(background_splash2.jpg) no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
   background-size: cover;
 }
