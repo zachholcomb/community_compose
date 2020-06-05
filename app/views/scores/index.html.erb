@@ -1,9 +1,7 @@
 <body class='score-show'>
   <div id='edit-success'>
   <% if notice %>
-    <div class='notice-wrapper'>
-      <p class='notice'><%= render partial: 'shared/notice_banner' %></p>
-    </div>
+    <%= render partial: 'shared/notice_banner' %>
   <% end %>
   </div>
     <h1 class='username' id='score-title'><%= @score.title %></h1>
