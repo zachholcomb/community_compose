@@ -21,7 +21,7 @@ body.home {
   background-size: cover;
 }
 body.score-show {
-  background: url(<%= asset_path('background_splash2.jpg') %>) no-repeat center center fixed;
+  background: url(/assets/background_splash2.jpg) no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -29,7 +29,7 @@ body.score-show {
 }
 
 body.dashboard {
-  background: url(<%= asset_path('piano.jpg') %>) no-repeat center center fixed;
+  background: url(/assets/piano.jpg) no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -37,7 +37,7 @@ body.dashboard {
 }
 
 body.explore {
-  background: url(<%= asset_path('close_up.jpg') %>) no-repeat center center fixed;
+  background: url(/assets/close_up.jpg) no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -45,7 +45,7 @@ body.explore {
 }
 
 body.profile {
-  background: url(<%= asset_path('violin.jpg') %>) no-repeat center center fixed;
+  background: url(/assets/violin.jpg) no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -53,7 +53,7 @@ body.profile {
 }
 
 body.location {
-  background: url(<%= asset_path('viola.jpg') %>) no-repeat center center fixed;
+  background: url(/assets/viola.jpg) no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -61,7 +61,7 @@ body.location {
 }
 
 body.create-score {
-  background: url(<%= asset_path('background_splash2.jpg') %>) no-repeat center center fixed;
+  background: url(/assets/background_splash2.jpg) no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -69,7 +69,7 @@ body.create-score {
 }
 
 body.user-new {
-  background: url(<%= asset_path('background_splash2.jpg') %>) no-repeat center center fixed;
+  background: url(/assets/background_splash2.jpg) no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
