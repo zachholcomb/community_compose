@@ -20,9 +20,16 @@ body.home {
   -o-background-size: cover;
   background-size: cover;
 }
+body.score-show {
+  background: url(background_splash2.jpg) no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
 
 body.dashboard {
-  background: url(dash_SAMPLE.jpg) no-repeat center center fixed;
+  background: url(piano.jpg) no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -30,15 +37,23 @@ body.dashboard {
 }
 
 body.explore {
-  background-color: lightblue;
+  background: url(close_up.jpg) no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
 }
 
 body.profile {
-  background-color: lightyellow;
+  background: url(violin.jpg) no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
 }
 
 body.location {
-  background: url(location_SAMPLE.jpg) no-repeat center center fixed;
+  background: url(viola.jpg) no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
