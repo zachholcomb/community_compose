@@ -1,22 +1,29 @@
-<h1>Conversation with <%= @conversation.participants.first.username %></h1>
-<h3><%= @conversation.subject %></h3>
-<% @conversation.receipts_for(current_user).each do |receipt| %>
-  <div id='message-<%= receipt.id%>'>
-    <% if !(receipt.deleted) %>
-      <div>
-      <%= image_tag receipt.message.sender.picture, class: 'navbar-brand' %>
-      <%= receipt.message.sender.name %> commented:
-      </div>
-        <p><%= receipt.message.body %></p>
-        <p><%= receipt.created_at.in_time_zone('America/Denver').strftime('%A, %d %b %Y %l:%M %p') %></p>
-        <P><%= link_to 'Delete Message', "/users/conversations/#{@conversation.id}/messages/#{receipt.id}", method: :delete%>
+<body class='dashboard'>
+  <h1 class='exp-header'>Conversation with <%= @conversation.participants.first.username %></h1>
+  <h3 class='convo-subject'><%= @conversation.subject %></h3>
+  <% @conversation.receipts_for(current_user).each do |receipt| %>
+    <div id='message-<%= receipt.id%>'>
+      <% if !(receipt.deleted) %>
+        <div class='msg-card'>
+          <img src= "<%= receipt.message.sender.picture %>" alt="Profile" class='profile-pic' width='100' height='100'>
+          <span class='user-comment'><%= receipt.message.sender.name %> commented:</span>
+          <div class="msg-body-card">
+            <p><%= receipt.message.body %></p>
+          </div>
+            <div class="msg-details">
+              <br><%= receipt.created_at.in_time_zone('America/Denver').strftime('%A, %d %b %Y %l:%M %p') %></br>
+              <%= link_to 'Delete Message', "/users/conversations/#{@conversation.id}/messages/#{receipt.id}", method: :delete%>
+            </div>
+        </div>
     </div>
     <% end %>
-<% end %>
-
-<%= form_tag users_conversation_messages_path(@conversation), method: :post do %>
-  <div>
-    <%= text_area_tag :body %>
+  <% end %>
+  <div class="reply-box">
+  <%= form_tag users_conversation_messages_path(@conversation), method: :post do %>
+    <div>
+      <%= text_area_tag :body %>
+    </div>
+        <%= submit_tag 'Reply'%>
+  <% end %>
   </div>
-  <%= submit_tag 'Reply'%>
-<% end %>
+</body>
