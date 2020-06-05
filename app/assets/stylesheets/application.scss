@@ -14,14 +14,14 @@
  *= require_self
  */
 body.home {
-  background: url(background_splash2.jpg) no-repeat center center fixed;
+  background: url(asset_path(background_splash2)) no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
 }
 body.score-show {
-  background: url(/assets/background_splash2.jpg) no-repeat center center fixed;
+  background: url(asset_path(background_splash2)) no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -29,7 +29,7 @@ body.score-show {
 }
 
 body.dashboard {
-  background: url(/assets/piano.jpg) no-repeat center center fixed;
+  background: url(asset_path(piano)) no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -37,7 +37,7 @@ body.dashboard {
 }
 
 body.explore {
-  background: url(/assets/close_up.jpg) no-repeat center center fixed;
+  background: url(asset_path(close_up)) no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -45,7 +45,7 @@ body.explore {
 }
 
 body.profile {
-  background: url(/assets/violin.jpg) no-repeat center center fixed;
+  background: url(asset_path(violin)) no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -53,7 +53,7 @@ body.profile {
 }
 
 body.location {
-  background: url(/assets/viola.jpg) no-repeat center center fixed;
+  background: url(asset_path(viola)) no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -61,7 +61,7 @@ body.location {
 }
 
 body.create-score {
-  background: url(/assets/background_splash2.jpg) no-repeat center center fixed;
+  background: url(asset_path(background_splash2)) no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -69,7 +69,23 @@ body.create-score {
 }
 
 body.user-new {
-  background: url(/assets/background_splash2.jpg) no-repeat center center fixed;
+  background: url(asset_path(background_splash2)) no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+body.conversation-index {
+  background: url(asset_path(violin)) no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+body.conversation-new {
+  background: url(asset_path(viola)) no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
