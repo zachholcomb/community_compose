@@ -2,7 +2,7 @@ class Users::ConversationsController < ApplicationController
   def index
     @conversations_facade = ConversationsFacade.new(current_user)
   end
-
+  
   def show
     @conversation = current_user.mailbox.conversations.find(params[:id])
   end
