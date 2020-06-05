@@ -5,7 +5,7 @@
     <div id='message-<%= receipt.id%>'>
       <% if !(receipt.deleted) %>
         <div class='msg-card'>
-          <img src= "<%= receipt.message.sender.picture %>" alt="Profile" class='profile-pic' width='100' height='100'>
+          <img src= "<%= receipt.message.sender.picture(session[:flat_key]) %>" alt="Profile" class='profile-pic' width='100' height='100'>
           <span class='user-comment'><%= receipt.message.sender.name %> commented:</span>
           <div class="msg-body-card">
             <p><%= receipt.message.body %></p>

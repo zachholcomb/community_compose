@@ -1,6 +1,6 @@
 <body class='profile'>
   <div class="profile-card">
-    <img src= "<%= @user.picture %>" alt="Profile" class='profile-pic' width='400' height='400'>
+    <img src= "<%= @user.picture(session[:flat_key]) %>" alt="Profile" class='profile-pic' width='400' height='400'>
     <h1 class='username'><%= @user.username %></h1>
     <p class="profile-title"><%= @user.about %></p>
     <div class="profile-info">

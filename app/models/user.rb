@@ -20,7 +20,7 @@ class User < ApplicationRecord
     return self.username
   end
   
-  def picture
-    FlatService.get_user[:picture]
+  def picture(session_key)
+    FlatService.get_user(session_key)[:picture]
   end
 end

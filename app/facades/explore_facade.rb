@@ -1,10 +1,10 @@
 class ExploreFacade
   attr_reader :scores, :distances, :users
 
-  def initialize(current_user)
+  def initialize(current_user, session_key)
     @distances = Location.distances(current_user.zip)
     @users =  sorted(current_user)
-    @scores = collect_scores
+    @scores = collect_scores(session_key)
   end
 
   def sorted(current_user)
@@ -13,10 +13,10 @@ class ExploreFacade
     end
   end
 
-  def collect_scores
+  def collect_scores(session_key)
     all_scores = []
     @users.each do |user|
-      all_scores << Score.create(user.flat_id)
+      all_scores << Score.create(user.flat_id, session_key)
     end
     all_scores.flatten
   end
