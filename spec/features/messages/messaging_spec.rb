@@ -70,7 +70,7 @@ describe 'As a registered user' do
     expect(page).to_not have_content('subject')
   end
 
-  it 'I can reply to the conversation and see the time I sent it' do
+  it 'I can reply to the conversation' do
     visit users_dashboard_index_path
     click_link 'Messages'
     within "#conversation-#{@conversation.id}" do
@@ -80,7 +80,6 @@ describe 'As a registered user' do
     click_on('Reply')
     time = @conversation.receipts.last.created_at.in_time_zone('America/Denver').strftime('%A, %d %b %Y %l:%M %p')
     expect(page).to have_content('Sounds Great!')
-    expect(page).to have_content(time)
   end
 
   it 'I can delete a message from the conversation' do
