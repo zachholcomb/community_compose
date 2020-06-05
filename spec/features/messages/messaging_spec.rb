@@ -36,8 +36,7 @@ describe 'As a registered user' do
     click_link 'Messages'
     expect(page).to have_current_path(users_conversations_path)
 
-    click_link('Create A New Conversation')
-    expect(page).to have_current_path(new_users_conversation_path)
+    click_button('Create New Conversation')
 
     select @user2.username, from: :user_id
     fill_in :subject, with: 'Lets Collab'
