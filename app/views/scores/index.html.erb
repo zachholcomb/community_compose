@@ -1,4 +1,10 @@
 <body class='score-show'>
+  <div id='edit-success'>
+  <% if notice %>
+    <% binding.pry %>
+   <%= render partial: 'shared/notice_banner' %>
+  <% end %>
+  </div>
     <h1 class='username' id='score-title'><%= @score.title %></h1>
     <select style='margin-left:900px;margin-bottom: 20px;' id='scores-menu' onchange="window.location=this.value">
       <option>Select a Score</option>
@@ -7,7 +13,7 @@
       <% end %>
     </select>
     <div id="embed-container"></div>
-    <div style='margin-left:900px;margin-top:20px;'><%= button_to 'Submit Changes', "/scores/#{@score.id}", method: :patch, id: 'export-xml' %></div>
+    <div style='margin-left:900px;margin-top:20px;'><%= button_to 'Submit Changes', "/scores/#{@score.id}", method: :patch, id: 'export-xml', remote: true %></div>
     <script>
       var container = document.getElementById("embed-container");
       var embed = new Flat.Embed(container, {
