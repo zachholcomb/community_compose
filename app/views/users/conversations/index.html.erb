@@ -1,13 +1,17 @@
 <body class='conversation-index'>
-  <h1>Your Conversations</h1>
-  <% @conversations.each do |conversation| %>
-    <div id='conversation-<%= conversation.id%>'>
-      <% if !(conversation.is_trashed?(current_user)) %>
-        <%= "Conversation with #{conversation.participants.first.username}" %>
-        <%= link_to conversation.subject, users_conversation_path(conversation)%>
-        <%= link_to 'Leave Conversation', users_conversation_path(conversation), method: :delete %>
-      <% end %>
-    </div>
-  <% end %>
-  <%= link_to 'Create A New Conversation', new_users_conversation_path %>
+  <h1 class='exp-header'>Your Conversations</h1>
+  <div class="msg-card">
+    <% @conversations.each do |conversation| %>
+      <div id='conversation-<%= conversation.id%>'>
+        <div class="msg-body-card">
+          <% if !(conversation.is_trashed?(current_user)) %>
+          <br><%= "Conversation with #{conversation.participants.first.username}" %></br>
+            <p><span class='user-comment'><%= link_to conversation.subject, users_conversation_path(conversation)%></span></p>
+            <%= link_to 'Leave Conversation', users_conversation_path(conversation), method: :delete %>
+          <% end %>
+        </div>
+      </div>
+    <% end %>
+    <div style='padding:20px;'><%= link_to 'Create A New Conversation', new_users_conversation_path %></div>
+  </div>
 </body>
