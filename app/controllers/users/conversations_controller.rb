@@ -11,7 +11,7 @@ class Users::ConversationsController < ApplicationController
     @recipients = User.where.not(id: current_user.id)
   end
 
-  def create 
+  def create
     recipient = User.find(params[:user_id])
     receipt = current_user.send_message(recipient, params[:body], params[:subject])
     if receipt.save
@@ -20,7 +20,7 @@ class Users::ConversationsController < ApplicationController
     end
   end
 
-  def destroy 
+  def destroy
     conversation = current_user.mailbox.conversations.find(params[:id])
     conversation.move_to_trash(current_user)
     flash[:notice] = 'Conversation Removed!'
