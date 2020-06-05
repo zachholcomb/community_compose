@@ -1,7 +1,7 @@
 <body class='conversation-index'>
   <h1 class='exp-header'>Your Conversations</h1>
   <div class="msg-card">
-    <% @conversations.each do |conversation| %>
+    <% @conversations_facade.conversations.each do |conversation| %>
       <div id='conversation-<%= conversation.id%>'>
         <div class="msg-body-card">
           <% if !(conversation.is_trashed?(current_user)) %>
@@ -14,7 +14,7 @@
     <% end %>
     <div style='padding:20px;'>
       <button type='button' class='btn btn-primary btn-lg' data-toggle='modal' data-target='#new-conversation'>
-        Create new conversation
+        Create New Conversation
       </button>
     </div>
   </div>
@@ -26,7 +26,7 @@
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="staticBackdropLabel">Choose Recipient: <%= select_tag :user_id, options_from_collection_for_select(@recipients, :id, :username) %></h5>
+          <h5 class="modal-title" id="staticBackdropLabel">Choose Recipient: <%= select_tag :user_id, options_from_collection_for_select(@conversations_facade.recipients, :id, :username) %></h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
@@ -36,7 +36,7 @@
             <%= text_field_tag :subject, nil, placeholder: 'Subject', style: 'width:100%'%>
           </div>
           <div class="field">
-            <%= text_area_tag :body, nil, placeholder: 'Start a new conversation', style: 'width:100%'%>
+            <%= text_area_tag :body, nil, placeholder: 'Start a new conversation', style: 'width:100%', cols: 40, rows: 15 %>
           </div>
         </div>
         <div class="modal-footer">
