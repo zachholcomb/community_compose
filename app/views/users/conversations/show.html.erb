@@ -1,11 +1,10 @@
 <body class='dashboard'>
-  <h1 class='exp-header'>Conversation with <%= @conversation.participants.first.username %></h1>
+  <h1 class='exp-header'>Conversation with <%=@conversation.participants.select { |participant| participant[:username] != current_user.username }.first.username %></h1>
   <h3 class='convo-subject'><%= @conversation.subject %></h3>
   <% @conversation.receipts_for(current_user).each do |receipt| %>
     <div id='message-<%= receipt.id%>'>
       <% if !(receipt.deleted) %>
         <div class='msg-card'>
-          <img src= "<%= receipt.message.sender.picture %>" alt="Profile" class='profile-pic' width='100' height='100'>
           <span class='user-comment'><%= receipt.message.sender.name %> commented:</span>
           <div class="msg-body-card">
             <p><%= receipt.message.body %></p>
