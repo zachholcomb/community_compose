@@ -8,7 +8,7 @@ class User < ApplicationRecord
   validates :instruments, presence: true
 
 
-  def distance(distance_list)
+  def get_distance(distance_list)
     distance_list[zip]
   end
 
@@ -19,8 +19,8 @@ class User < ApplicationRecord
   def name
     return self.username
   end
-
-  def picture
-    FlatService.get_user[:picture]
+  
+  def picture(session_key)
+    FlatService.get_user(session_key)[:picture]
   end
 end

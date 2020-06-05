@@ -1,35 +1,33 @@
 class FlatService
   class << self
-    attr_accessor :flat_key
-
-    def get_user
-      get_json(conn.get('/v2/me'))
+    def get_user(session_key)
+      get_json(conn(session_key).get('/v2/me'))
     end
 
-    def get_scores(user_id)
-      response = conn.get("/v2/users/#{user_id}/scores")
+    def get_scores(user_id, session_key)
+      response = conn(session_key).get("/v2/users/#{user_id}/scores")
       response.body.empty? ? [] : get_json(response)
     end
 
-    def get_score(score_id)
-      get_json(conn.get("/v2/scores/#{score_id}"))
+    def get_score(score_id, session_key)
+      get_json(conn(session_key).get("/v2/scores/#{score_id}"))
     end
 
-    def delete_score(score_id)
-      conn.delete("/v2/scores/#{score_id}")
+    def delete_score(score_id, session_key)
+      conn(session_key).delete("/v2/scores/#{score_id}")
     end
 
-    def add_collaborator(score_id, user_id)
+    def add_collaborator(score_id, user_id, session_key)
       body = { 'user': user_id,
                'aclWrite': true }
-      conn.post("/v2/scores/#{score_id}/collaborators") do |request|
+      conn(session_key).post("/v2/scores/#{score_id}/collaborators") do |request|
         request.headers['content-type'] = 'application/json'
         request.body = body.to_json
       end
     end
 
-    def create_score(title, clef)
-      resp = conn.post('/v2/scores') do |request|
+    def create_score(title, clef, session_key)
+      resp = conn(session_key).post('/v2/scores') do |request|
         request.headers['content-type'] = 'application/json'
         request.body = body(title, template(clef)).to_json
       end
@@ -38,9 +36,9 @@ class FlatService
 
     private
 
-    def conn
+    def conn(session_key)
       Faraday.new('https://api.flat.io') do |f|
-        f.headers[:Authorization] = "Bearer #{@flat_key}"
+        f.headers[:Authorization] = "Bearer #{session_key}"
       end
     end
 

@@ -1,7 +1,7 @@
 class ScoreFacade
   attr_reader :all_scores
 
-  def initialize
-    @all_scores = Score.create
+  def initialize(session_key)
+    @all_scores = Score.create(session_key)
   end
 end
