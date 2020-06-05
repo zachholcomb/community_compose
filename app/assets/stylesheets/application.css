@@ -21,7 +21,7 @@ body.home {
   background-size: cover;
 }
 body.score-show {
-  background: url(background_splash2.jpg) no-repeat center center fixed;
+  background: url(/assets/background_splash2.jpg) no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -29,7 +29,7 @@ body.score-show {
 }
 
 body.dashboard {
-  background: url(piano.jpg) no-repeat center center fixed;
+  background: url(/assets/piano.jpg) no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -37,7 +37,7 @@ body.dashboard {
 }
 
 body.explore {
-  background: url(close_up.jpg) no-repeat center center fixed;
+  background: url(/assets/close_up.jpg) no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -45,7 +45,7 @@ body.explore {
 }
 
 body.profile {
-  background: url(violin.jpg) no-repeat center center fixed;
+  background: url(/assets/violin.jpg) no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -53,7 +53,7 @@ body.profile {
 }
 
 body.location {
-  background: url(viola.jpg) no-repeat center center fixed;
+  background: url(/assets/viola.jpg) no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -61,7 +61,7 @@ body.location {
 }
 
 body.create-score {
-  background: url(background_splash2.jpg) no-repeat center center fixed;
+  background: url(/assets/background_splash2.jpg) no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -69,7 +69,7 @@ body.create-score {
 }
 
 body.user-new {
-  background: url(background_splash2.jpg) no-repeat center center fixed;
+  background: url(/assets/background_splash2.jpg) no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -85,4 +85,13 @@ body.user-new {
   object-fit: cover;
   top: 0;
   z-index: -2;
+}
+
+.splash_image {
+  width: 40%;
+  margin-bottom: 10px;
+}
+
+.nav_image {
+  height: 30px;
 }
