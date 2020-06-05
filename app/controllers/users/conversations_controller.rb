@@ -1,6 +1,6 @@
 class Users::ConversationsController < ApplicationController
   def index
-    @conversations = current_user.mailbox.conversations
+    @conversations_facade = ConversationsFacade.new(current_user)
   end
 
   def show
@@ -14,12 +14,16 @@ class Users::ConversationsController < ApplicationController
   def create 
     recipient = User.find(params[:user_id])
     receipt = current_user.send_message(recipient, params[:body], params[:subject])
-    redirect_to users_conversation_path(receipt.conversation)
+    if receipt.save
+      flash[:notice] = 'Message sent!'
+      redirect_to users_conversation_path(receipt.conversation)
+    end
   end
 
   def destroy 
     conversation = current_user.mailbox.conversations.find(params[:id])
     conversation.move_to_trash(current_user)
+    flash[:notice] = 'Conversation Removed!'
     redirect_to users_conversations_path
   end
 end

@@ -21,7 +21,7 @@
   <div class="reply-box">
   <%= form_tag users_conversation_messages_path(@conversation), method: :post do %>
     <div>
-      <%= text_area_tag :body %>
+      <%= text_area_tag :body, nil, placeholder: "Message #{@conversation.participants.first.username}", style: 'width:53%' %>
     </div>
         <%= submit_tag 'Reply'%>
   <% end %>
