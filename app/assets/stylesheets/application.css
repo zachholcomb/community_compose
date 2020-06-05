@@ -86,3 +86,12 @@ body.user-new {
   top: 0;
   z-index: -2;
 }
+
+.splash_image {
+  width: 40%;
+  margin-bottom: 10px;
+}
+
+.nav_image {
+  height: 30px;
+}
