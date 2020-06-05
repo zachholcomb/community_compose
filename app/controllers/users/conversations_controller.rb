@@ -1,6 +1,6 @@
 class Users::ConversationsController < ApplicationController
   def index
-    @conversations = current_user.mailbox.conversations
+    @conversations_facade = ConversationsFacade.new(current_user)
   end
 
   def show
