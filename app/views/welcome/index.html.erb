@@ -1,24 +1,21 @@
-<%= video_tag "background_vid_EX1.mp4", autoplay: :autoplay, loop: :loop, muted: :muted, class: "home_video" %>
+<%= video_tag "Inside_Piano.mp4", autoplay: :autoplay, loop: :loop, muted: :muted, class: "home_video" %>
 <div class="container">
-  <video autoplay muted loop id="myVideo">
-    <source src="/app/assets/images/rain.mp4" type="video/mp4">
-  </video>
   <div class="row">
     <div class="col-sm">
-      <div class='text-center' style='margin-top:40px;'>
-        <img src='/assets/logo_transparent_HORIZ.png' width='40%'>
-        <div style='margin-top:15px;margin-bottom:40px;'>
+      <div class='text-center' style='margin-top:10px;'>
+        <img src='/assets/logo_transparent_HORIZ.png' width='40%' style='margin-bottom:10px;'>
+        <div class="col-sm text-center">
+          <p class="lead" style='color:#0384fc;'>
+             <span class='tag-box'>Fostering collaboration between musicians in your neighborhood.</span>
+          </p>
+        </div>
+        <div style='margin-top:40px;margin-bottom:40px;'>
           <%= button_to 'Get Started', "https://flat.io/auth/oauth?client_id=#{ENV['CLIENT_ID']}&response_type=code&scope=account.public_profile scores&redirect_uri=#{ENV['CALLBACK']}",
           method: :get, params: { client_id: ENV['CLIENT_ID'], response_type: 'code', scope: 'account.public_profile scores', redirect_uri: ENV['CALLBACK'] },
           class: 'btn btn-outline-light btn-lg text-center'
           %>
         </div>
       </div>
-      <div class="col-sm text-center" style='border: 3px solid #fcba03;border-radius: 25px;'>
-        <p class="lead">
-           Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Duis mollis, est non commodo luctus.
-        </p>
-      </div>
+
     </div>
   </div>
-
