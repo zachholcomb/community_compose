@@ -78,6 +78,7 @@ describe 'As a registered user' do
     end
     fill_in :body, with: 'Sounds Great!'
     click_on('Reply')
+    time = @conversation.receipts.last.created_at.in_time_zone('America/Denver').strftime('%A, %d %b %Y %l:%M %p')
     expect(page).to have_content('Sounds Great!')
   end
 

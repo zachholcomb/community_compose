@@ -4,6 +4,8 @@ describe 'As a registered user' do
   describe 'when I visit users/:id' do
     scenario 'I should see that users profile' do
       user = create(:user, username: 'tylerpporter')
+      allow_any_instance_of(ApplicationController).to receive(:current_user)
+                                        .and_return(user)
       json_user_resp = File.read('spec/fixtures/flat/user.json')
       stub_request(:get, "https://api.flat.io/v2/me").to_return(status: 200, body: json_user_resp, headers: {})
       
