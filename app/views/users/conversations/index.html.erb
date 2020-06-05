@@ -5,7 +5,7 @@
       <div id='conversation-<%= conversation.id%>'>
         <div class="msg-body-card">
           <% if !(conversation.is_trashed?(current_user)) %>
-          <br><%= "Conversation with #{conversation.participants.first.username}" %></br>
+          <br> Conversation with <%=conversation.participants.select { |participant| participant[:username] != current_user.username }.first.username %> </br>
             <p><span class='user-comment'><%= link_to conversation.subject, users_conversation_path(conversation)%></span></p>
             <%= link_to 'Leave Conversation', users_conversation_path(conversation), method: :delete %>
           <% end %>

@@ -5,14 +5,14 @@
   <% end %>
   </div>
     <h1 class='username' id='score-title'><%= @score.title %></h1>
-    <select style='margin-left:900px;margin-bottom: 20px;' id='scores-menu' onchange="window.location=this.value">
+    <select style='width:40%' id='scores-menu' onchange="window.location=this.value">
       <option>Select a Score</option>
       <% @score_bank.all_scores.each do |score| %>
         <option value="/scores?score_id=<%= score.id %>"><%= score.title %></option>
       <% end %>
     </select>
     <div id="embed-container"></div>
-    <div style='margin-left:900px;margin-top:20px;'><%= button_to 'Submit Changes', "/scores/#{@score.id}", method: :patch, id: 'export-xml', remote: true %></div>
+    <div style='width:50%'><%= button_to 'Submit Changes', "/scores/#{@score.id}", method: :patch, id: 'export-xml', remote: true %></div>
     <script>
       var container = document.getElementById("embed-container");
       var embed = new Flat.Embed(container, {
