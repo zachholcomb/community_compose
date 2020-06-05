@@ -12,8 +12,9 @@ class ScoresController < ApplicationController
   end
 
   def update
-    flash.now[:notice] = 'Your changes were saved!'
-    redirect_to users_dashboard_index_path
+    respond_to do |format|
+      format.js { flash.now[:notice] = 'Your changes were submitted!'}
+    end
   end
 
   def destroy
