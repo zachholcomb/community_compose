@@ -37,7 +37,7 @@
   background: #fcba03;
   padding: 0px;
   width: 50%;
-  height: 50px;
+  height: auto;
   font-family: "Arial Black", Gadget, sans-serif;
   color: #0384fc;
 }
@@ -67,6 +67,7 @@
   margin-top: 50px;
   text-align: center;
   background-color: lightyellow;
+  padding-top: 20px;
 }
 .profile-title {
   color: #48494a;
@@ -116,7 +117,7 @@
 }
 .collabs {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.7);
-  width: 300px;
+  width: 500px;
   max-height: 900px;
   margin: auto;
   margin-top: 50px;
@@ -134,4 +135,57 @@
   border: 3px solid #fcba03;
   border-radius: 25px;
   padding: 20px;
+}
+.user-comment {
+  color: #0384fc;
+  font-size: 20px;
+  background-color: lightGray;
+  padding: 8px;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  border-radius: 25px;
+}
+.msg-details {
+  font-size: 12px;
+  padding-bottom: 10px;
+}
+.msg-body-card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4);
+  width: 50%;
+  height: auto;
+  margin: auto;
+  margin-top: 20px;
+  text-align: center;
+  background-color: white;
+  padding: 10px;
+  font-size: 18px;
+}
+.msg-card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.7);
+  width: 700px;
+  height: auto;
+  margin: auto;
+  margin-top: 20px;
+  text-align: center;
+  background-color: lightyellow;
+  padding-top: 20px;
+}
+.reply-box {
+  margin: auto;
+  width: auto;
+  padding: 20px;
+  text-align: center;
+}
+.convo-subject {
+  color: #0384fc;
+  font-size: 20px;
+  background-color: lightGray;
+  padding: 8px;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  border-radius: 25px;
+  width: 25%;
+  height: auto;
+  text-align: center;
+  margin: auto;
 }
