@@ -4,7 +4,7 @@
     <div class='center-box'>
       <div class="card-columns">
         <% @explore_data.scores.each_with_index do |score, index| %>
-          <div class="card border-primary mb-3 h-5 " style="width: 18rem;border: 3px solid;">
+          <div class="card border-primary mb-3 h-5 " style="width: 95%; height: 12rem; border: 3px solid;">
             <div id="score-<%= index %>" class="card-body">
               <h3 class="card-title"><%= link_to score.title, scores_path(:params => {score_id: score.id}) %></h3>
               <h6 class="card-subtitle mb-2 text-muted"><span style=font-weight:bold;>Owner:</span> <%= score.owner %></h6>
