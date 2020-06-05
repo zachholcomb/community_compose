@@ -9,7 +9,7 @@ class ExploreFacade
 
   def sorted(current_user)
     local_users(current_user).sort_by do |user|
-      user.distance(@distances)
+      user.get_distance(@distances)
     end
   end
 

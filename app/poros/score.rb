@@ -34,7 +34,7 @@ class Score
 
   def distance(distances)
     owner = User.find_by(username: @owner)
-    owner.distance(distances).round(1)
+    owner.get_distance(distances).round(1)
   end
 
   def current_collaborator?(username)

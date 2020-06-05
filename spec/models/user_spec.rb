@@ -24,7 +24,7 @@ RSpec.describe User, type: :model do
       stub_request(:get, "https://api.flat.io/v2/me").to_return(status: 200, body: json_user_resp, headers: {})
       zips = {"80004" => 1.4, "80005" => 2.3, "80006" => 4.2}
 
-      expect(user.distance(zips)).to eq(2.3)
+      expect(user.get_distance(zips)).to eq(2.3)
     end
   end
 end
