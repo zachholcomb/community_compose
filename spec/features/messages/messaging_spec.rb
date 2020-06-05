@@ -44,6 +44,7 @@ describe 'As a registered user' do
     click_on('Submit')
     new_conversation = @user1.mailbox.conversations.first
     expect(page).to have_current_path("/users/conversations/#{new_conversation.id}")
+    expect(page).to have_content("Message sent!")
     expect(page).to have_content('Lets Collab')
   end
 
@@ -66,6 +67,7 @@ describe 'As a registered user' do
       click_link('Leave Conversation')
     end
     expect(page).to have_current_path(users_conversations_path)
+    expect(page).to have_content('Conversation Removed!')
     expect(page).to_not have_content('subject')
   end
 
@@ -97,7 +99,7 @@ describe 'As a registered user' do
     within "#message-#{message.id}" do
       click_link('Delete')
     end
-
     expect(page).to_not have_content('Sounds Great!')
+    expect(page).to have_content('Message Deleted!')
   end
 end

@@ -9,6 +9,7 @@ class Users::MessagesController < ApplicationController
   def destroy
     receipt = @conversation.receipts.find(params[:id])
     receipt.update(deleted: true)
+    flash[:notice] = 'Message Deleted!'
     redirect_to users_conversation_path(receipt.conversation)
   end
 
