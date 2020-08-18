@@ -1,3 +1,4 @@
+<%= content_tag :div, '', id: 'score', data: { source: @score.id } %>
 <body class='score-show'>
   <div id='edit-success'>
   <% if notice %>
@@ -12,41 +13,8 @@
       <% end %>
     </select>
     <div id="embed-container"></div>
+    <%= javascript_include_tag 'flat' %>
     <div style='width:50%'><%= button_to 'Submit Changes', "/scores/#{@score.id}", method: :patch, id: 'export-xml', remote: true %></div>
-    <script>
-      var container = document.getElementById("embed-container");
-      var embed = new Flat.Embed(container, {
-        "width": "100%",
-        "height": "450",
-        "score": "<%= @score.id %>",
-        "embedParams": {
-          "mode": "edit",
-          "branding": false,
-          "appId": "5ecd978ef0aa2b501cf8cf25",
-          "controlsPosition": "top"
-        },
-      });
-      var headers = new Headers();
-        headers.set('Authorization', 'Bearer ' + '<%= session[:flat_key] %>')
-        headers.set('Content-Type', 'application/json')
-      document.getElementById('export-xml').addEventListener('click', function () {
-        embed.getMusicXML().then(function (xml) {
-          editScore(btoa(xml))
-          });
-        });
-      function editScore(document) { fetch('https://api.flat.io/v2/scores/<%= @score.id %>/revisions' , {
-        method: 'post',
-        headers: headers,
-        body: JSON.stringify({
-                "title": "<%= @score.title %>",
-                "data": `${document}`,
-                "dataEncoding": "base64",
-                "autosave": true
-          }),
-        mode: 'cors'
-        })
-      };
-    </script>
     <div class="collabs">
       <section class="collaborators">
         <h3 style='font-family: "Arial Black", Gadget, sans-serif;'>Collaborators</h3>
