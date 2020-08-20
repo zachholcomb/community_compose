@@ -77,11 +77,12 @@ body.home {
   background-size: cover;
 }
 body.score-show {
-  background: url(asset_path(background_splash2)) no-repeat center center fixed;
+  background: url(asset_path(piano)) no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
+  padding: 3rem;
 }
 
 body.dashboard {
@@ -106,6 +107,7 @@ body.profile {
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
+  padding: 3rem;
 }
 
 body.location {
