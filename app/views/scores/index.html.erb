@@ -15,7 +15,7 @@
     <div id="embed-container"></div>
     <%= javascript_include_tag 'flat' %>
     <div style='width:50%'><%= button_to 'Submit Changes', "/scores/#{@score.id}", method: :patch, id: 'export-xml', remote: true %></div>
-    <div class="row">
+    <div class="my-row">
       <div class="col-1-of-2">
         <div class="collabs">
           <section class="collaborators">
@@ -40,14 +40,13 @@
                     <% end %>
                   </ul>
                 <% end %>
-            </div>
               </section>
-          </section>
-        </section>
-      </div>
-    </div>
-    <div class="col-1-of-2 u-center-text">
-      <section class="create-score u-center-text u-margin-bottom-medium">
+            </div>
+         </section>
+       </div>
+     </div>
+     <div class="col-1-of-2 u-center-text ">
+      <section class="u-center-text u-margin-bottom-medium">
         <div class='form-style'>
           <h2 class="form-style__heading">Create New Score</h2>
           <div class='form-style__contents'>
@@ -60,6 +59,6 @@
           </div>
         </div>
       </section>
-    </div>
-  </div>
+     </div>
+   </div>
 </body>
