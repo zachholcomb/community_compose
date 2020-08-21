@@ -1,5 +1,7 @@
+@import "../abstracts/variables";
+
 .nav-bar {
-  font-size: 1.0rem;
+  font-size: 1.2rem;
   position: relative;
   display: -ms-flexbox;
   display: flex;
@@ -11,6 +13,7 @@
   justify-content: space-between;
   padding: 0.5rem 1rem;
   text-transform: uppercase;
+  letter-spacing: .2rem;
 
   &__dark {
   color: #fff;
@@ -27,7 +30,7 @@
   }
 
   &__bg-dark {
-  background-color: #343a40 !important;
+    background-color: #343a40 !important;
   }
 
   &__shadow {
@@ -47,13 +50,59 @@
   &__link {
     display: block;
     padding: 0.5rem 1rem;
+    &:link,
+    &:visited {
+      color: $color-gray-light-1;
+      text-decoration: none;
+      text-transform: uppercase;
+      display: inline-block;
+      transition: all 0.2s;
+    }
+    &:hover,
+    &:active {
+      color: $color-secondary-light;
+      transform: scale(1.1);
+    }
   }
 
   &__item {
     margin-bottom: -1px;
+    padding-right: 5rem;
+    -ms-transform: translateY(-10%);
+    transform: translateY(10%);
   }
 
   &__image {
   height: 30px;
+  }
+
+  &__button {
+    padding: 9px 25px;
+    background-color: rgba(0, 136, 169, 1);
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3 ease 0s;
+    color: $color-white;
+    // top: 40%;
+    display: inline-block;
+    -ms-transform: translateY(10%);
+    transform: translateY(-10%);
+
+      &__link {
+        display: block;
+        &:link,
+        &:visited {
+        color: $color-gray-light-1;
+        text-decoration: none;
+        text-transform: uppercase;
+        transition: all 0.2s;
+      }
+      &:hover,
+      &:active {
+        // color: 
+        transform: scale(1.08);
+      }
+    }
   }
 }
